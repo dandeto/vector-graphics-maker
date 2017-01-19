@@ -1,38 +1,39 @@
 <html>
-<body>
-<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
-</svg>
-<br>
-<select>
-	<option>Shapes</option>
-	<option onclick="Ccircle()">circle</option>
-	<option onclick="Crectangle()">rectangle</option>
-	<option onclick="Cellipse()">ellipse</option>
-	<option onclick="Cline()">line</option>
-	<option onclick="Ctext()">text</option>
-	<option onclick="Cpolygon()">polygon</option>
-	<option>path</option>
-</select>
+	<body>
+		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
+		</svg>
+		<br>
+		<select>
+			<option>Shapes</option>
+			<option onclick="Ccircle()">circle</option>
+			<option onclick="Crectangle()">rectangle</option>
+			<option onclick="Cellipse()">ellipse</option>
+			<option onclick="Cline()">line</option>
+			<option onclick="Ctext()">text</option>
+			<option onclick="Cpolygon()">polygon</option>
+			<option>path</option>
+		</select>
 
-<input class="hide" id="txt1" type="text" placeholder="Color in HEX"/><!--[0]-->
-<input class="hide" id="txt3" type="text" placeholder="x value"/><!--[1]-->
-<input class="hide" id="txt4" type="text" placeholder="y value"/><!--[2]-->
-<input class="hide" id="txt5" type="text" placeholder="stroke color"/><!--[3]-->
-<input class="hide" id="txt6" type="text" placeholder="stroke width"/><!--[4]-->
-<input class="hide" id="txt7" type="text" placeholder="width"/><!--[5]-->
-<input class="hide" id="txt8" type="text" placeholder="height"/><!--[6]-->
-<input class="hide" id="txt2" type="text" placeholder="radius length X"/><!--[7] - used to be [1]-->
-<input class="hide" id="txt9" type="text" placeholder="radius length Y"/><!--[8]-->
-<input class="hide" type="button" value="Set Point #" onclick="setPoints()"/><!--[9]-->
-<input class="hide" id="txt10" type="text" placeholder="text"/><!--[10]-->
-<input type="button" value="toggle background" onclick="toggleBG()"/>
-<input type="button" value="submit" onclick="create()">
-<input type="button" value="save" onclick="save()">
-<div id="container">
-</div>
+		<input class="hide" id="txt1" type="text" placeholder="Color in HEX"/><!--[0]-->
+		<input class="hide" id="txt3" type="text" placeholder="x value"/><!--[1]-->
+		<input class="hide" id="txt4" type="text" placeholder="y value"/><!--[2]-->
+		<input class="hide" id="txt5" type="text" placeholder="stroke color"/><!--[3]-->
+		<input class="hide" id="txt6" type="text" placeholder="stroke width"/><!--[4]-->
+		<input class="hide" id="txt7" type="text" placeholder="width"/><!--[5]-->
+		<input class="hide" id="txt8" type="text" placeholder="height"/><!--[6]-->
+		<input class="hide" id="txt2" type="text" placeholder="radius length X"/><!--[7] - used to be [1]-->
+		<input class="hide" id="txt9" type="text" placeholder="radius length Y"/><!--[8]-->
+		<input class="hide" type="button" value="Set Point #" onclick="setPoints()"/><!--[9]-->
+		<input class="hide" id="txt10" type="text" placeholder="text"/><!--[10]-->
+		<input type="button" value="toggle background" onclick="toggleBG()"/>
+		<input type="button" value="submit" onclick="create()">
+		<input type="button" value="save" onclick="save()">
+		
+		<div id="container">
+		</div>
 
-<link rel="stylesheet" type="text/css" href="index.css">
-<script type="text/javascript" src="index.js"></script><!--load content before download script-->
-<script type="text/javascript" src="download.js"></script>
-</body>
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script type="text/javascript" src="index.js"></script><!--load content before download script-->
+		<script type="text/javascript" src="download.js"></script>
+	</body>
 </html>
