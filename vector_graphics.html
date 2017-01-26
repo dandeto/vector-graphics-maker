@@ -1,13 +1,6 @@
 <html>
 	<body>
 		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
-
-			<style>
-      			circle, rect, text, ellipse, line, polygon {
-        			cursor: move;
-      			}
-    		</style>
-
 			<script type="text/ecmascript"><![CDATA[
 			    var selectedElement = 0;
 			    var currentX = 0;
@@ -51,13 +44,6 @@
 			        
 			    ]]>
 	    	</script>
-
-	    	<rect class="draggable"
-		          x="30" y="30"
-		          width="80" height="80"
-		          fill="blue"
-		          transform="matrix(1 0 0 1 0 0)"
-		          onmousedown="selectElement(evt)"/>
 		</svg>
 		<br>
 		<select>
@@ -85,7 +71,7 @@
 		<input type="button" value="toggle background" onclick="toggleBG()"/>
 		<input type="button" value="submit" onclick="create()">
 		<input type="button" value="save" onclick="save()">
-		
+
 		<div id="container">
 		</div>
 

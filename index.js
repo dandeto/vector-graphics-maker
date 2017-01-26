@@ -233,11 +233,15 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 	var exposition = document.createAttribute("x2");
 	var eyposition = document.createAttribute("y2");
 	var points = document.createAttribute("points");
+	var trans = document.createAttribute("transform");
+	var move = document.createAttribute("onmousedown");
 
 	fill.value = color;//implementations
 	radius.value = rad;
 	stroke.value = s;
 	strokeWidth.value = sw;
+	trans.value = "matrix(1 0 0 1 0 0)";
+	move.value = "selectElement(evt)";
 
 	if(cr == true) {
 		circle();
@@ -280,7 +284,6 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 	function circle() {
 		cxposition.value = xPos;
 		cyposition.value = yPos;
-		click.value = "edit(this)";
 
 		var cir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 		document.getElementById("svg").appendChild(cir);
@@ -291,8 +294,8 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 		cir.setAttributeNode(cyposition);
 		cir.setAttributeNode(stroke);
 		cir.setAttributeNode(strokeWidth);
-		cir.setAttributeNode(click);
-		cir.setAttributeNode(rClick);
+		cir.setAttributeNode(trans);
+		cir.setAttributeNode(move);
 	}
 
 	function ellipse() {
