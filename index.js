@@ -286,6 +286,7 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 	function circle() {
 		cxposition.value = xPos;
 		cyposition.value = yPos;
+		click.value = "edit(this)";
 
 		var cir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 		document.getElementById("svg").appendChild(cir);
@@ -296,6 +297,7 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 		cir.setAttributeNode(cyposition);
 		cir.setAttributeNode(stroke);
 		cir.setAttributeNode(strokeWidth);
+		cir.setAttributeNode(click);
 		cir.setAttributeNode(trans);
 		cir.setAttributeNode(move);
 	}
@@ -579,6 +581,7 @@ function edit(rect,cir,ellip) {
 	cyposition.value = yPos;
 	stroke.value = s;
 	strokeWidth.value = sw;
+	radius.value = rad;
 
 	rect.setAttributeNode(radius);
 	rect.setAttributeNode(width);
