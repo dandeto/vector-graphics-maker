@@ -279,6 +279,8 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 		txt.setAttributeNode(strokeWidth);
 		txt.setAttributeNode(click);
 		txt.setAttributeNode(style);
+		txt.setAttributeNode(trans);
+		txt.setAttributeNode(move);
 	}
 
 	function circle() {
@@ -316,6 +318,8 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 		ellip.setAttributeNode(stroke);
 		ellip.setAttributeNode(strokeWidth);
 		ellip.setAttributeNode(click);
+		ellip.setAttributeNode(trans);
+		ellip.setAttributeNode(move);
 	}
 
 
@@ -341,6 +345,8 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 		rect.setAttributeNode(stroke);
 		rect.setAttributeNode(strokeWidth);
 		rect.setAttributeNode(click);
+		rect.setAttributeNode(trans);
+		rect.setAttributeNode(move);
 	}
 
 
@@ -361,6 +367,8 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 		lin.setAttributeNode(stroke);
 		lin.setAttributeNode(strokeWidth);
 		lin.setAttributeNode(click);
+		lin.setAttributeNode(trans);
+		lin.setAttributeNode(move);
 	}
 
 
@@ -408,6 +416,8 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 		poly.setAttributeNode(fill);
 		poly.setAttributeNode(points);
 		poly.setAttributeNode(click);
+		poly.setAttributeNode(trans);
+		poly.setAttributeNode(move);
 	}
 }
 
