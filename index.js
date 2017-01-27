@@ -23,7 +23,6 @@ function Ccircle() {
 	for (var i = 0; i < 5; ++i) {//cycle through nodes 0-4 with class of inputs
 		inputs[i].style.display = "inline";
 	}
-	//inputs[5].style.display = "none";
 	inputs[6].style.display = "none";
 	inputs[7].style.display = "inline";
 	inputs[8].style.display = "none";
@@ -49,7 +48,6 @@ function Crectangle() {
 	for(var i = 0; i < 9; ++i) {
 		inputs[i].style.display = "inline";
 	}
-	//inputs[9].style.display = "none";
 	inputs[10].style.display = "none";
 
 	inputs[1].placeholder= "x value";
@@ -71,7 +69,6 @@ function Cellipse() {
 	for (var i = 0; i < 5; ++i) {
 		inputs[i].style.display = "inline";
 	}
-	//inputs[5].style.display = "none";
 	inputs[6].style.display = "none";
 	inputs[7].style.display = "inline";
 	inputs[8].style.display = "inline";
@@ -95,7 +92,7 @@ function Cline() {
 	removeCont();
 
 	inputs[0].style.display = "none";
-	for (var i = 1; i < 4; ++i) {//start at node 1
+	for (var i = 1; i < 5; ++i) {//start at node 1
 		inputs[i].style.display = "inline";
 	}
 	inputs[5].style.display = "none";
