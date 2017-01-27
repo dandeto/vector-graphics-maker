@@ -214,34 +214,7 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 	var yEnd = document.getElementById("txt9").value;
 	var t = document.getElementById("txt10").value;
 
-	var fill = document.createAttribute("fill");//var dec for attributes
-	var xposition = document.createAttribute("x");
-	var yposition = document.createAttribute("y");
-	var stroke = document.createAttribute("stroke");
-	var strokeWidth = document.createAttribute("stroke-width");
-	var style = document.createAttribute("style");
-	var click = document.createAttribute("onclick");
-	var radius = document.createAttribute("r");
-	var cxposition = document.createAttribute("cx");
-	var cyposition = document.createAttribute("cy");
-	var xradius = document.createAttribute("rx");
-	var yradius = document.createAttribute("ry");
-	var width = document.createAttribute("width");
-	var height = document.createAttribute("height");
-	var fxposition = document.createAttribute("x1");
-	var fyposition = document.createAttribute("y1");
-	var exposition = document.createAttribute("x2");
-	var eyposition = document.createAttribute("y2");
 	var points = document.createAttribute("points");
-	var trans = document.createAttribute("transform");
-	var move = document.createAttribute("onmousedown");
-
-	fill.value = color;//implementations
-	radius.value = rad;
-	stroke.value = s;
-	strokeWidth.value = sw;
-	trans.value = "matrix(1 0 0 1 0 0)";
-	move.value = "selectElement(evt)";
 
 	if(cr == true) {
 		circle();
@@ -263,116 +236,84 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 	}
 
 	function text() {
-		style.value = "font-size:" + fontsz;
-		click.value = "edit4(this)";//creates edit function onclick
-		xposition.value = xPos;
-		yposition.value = yPos;
-
 		var txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
 		document.getElementById("svg").appendChild(txt);
 		txt.innerHTML = t;
 		//sets attributes
-		txt.setAttributeNode(fill);
-		txt.setAttributeNode(xposition);
-		txt.setAttributeNode(yposition);
-		txt.setAttributeNode(stroke);
-		txt.setAttributeNode(strokeWidth);
-		txt.setAttributeNode(click);
-		txt.setAttributeNode(style);
-		txt.setAttributeNode(trans);
-		txt.setAttributeNode(move);
+		txt.setAttribute("fill", color);
+		txt.setAttribute("x", xPos);
+		txt.setAttribute("y", yPos);
+		txt.setAttribute("stroke", s);
+		txt.setAttribute("stroke-width", sw);
+		txt.setAttribute("onclick", "edit4(this)");
+		txt.setAttribute("style", "font-size:" + fontsz);
+		txt.setAttribute("transform", "matrix(1 0 0 1 0 0)");
+		txt.setAttribute("onmousedown", "selectElement(evt)");
 	}
 
 	function circle() {
-		cxposition.value = xPos;
-		cyposition.value = yPos;
-		click.value = "edit(this)";
-
 		var cir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 		document.getElementById("svg").appendChild(cir);
 
-		cir.setAttributeNode(radius);
-		cir.setAttributeNode(fill);
-		cir.setAttributeNode(cxposition);
-		cir.setAttributeNode(cyposition);
-		cir.setAttributeNode(stroke);
-		cir.setAttributeNode(strokeWidth);
-		cir.setAttributeNode(click);
-		cir.setAttributeNode(trans);
-		cir.setAttributeNode(move);
+		cir.setAttribute("fill", color);
+		cir.setAttribute("r", rad);
+		cir.setAttribute("cx", xPos);
+		cir.setAttribute("cy", yPos);
+		cir.setAttribute("stroke", s);
+		cir.setAttribute("stroke-width", sw);
+		cir.setAttribute("onclick", "edit(this)");
+		cir.setAttribute("transform", "matrix(1 0 0 1 0 0)");
+		cir.setAttribute("onmousedown", "selectElement(evt)");
 	}
 
 	function ellipse() {
-		xradius.value = xr;
-		yradius.value = yr;
-		cxposition.value = xPos;
-		cyposition.value = yPos;
-		click.value = "edit(this)";
-
 		var ellip = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 		document.getElementById("svg").appendChild(ellip);
 
-		ellip.setAttributeNode(xradius);
-		ellip.setAttributeNode(yradius);
-		ellip.setAttributeNode(fill);
-		ellip.setAttributeNode(cxposition);
-		ellip.setAttributeNode(cyposition);
-		ellip.setAttributeNode(stroke);
-		ellip.setAttributeNode(strokeWidth);
-		ellip.setAttributeNode(click);
-		ellip.setAttributeNode(trans);
-		ellip.setAttributeNode(move);
+		ellip.setAttribute("rx", xr);
+		ellip.setAttribute("ry", yr);
+		ellip.setAttribute("fill", color);
+		ellip.setAttribute("cx", xPos);
+		ellip.setAttribute("cy", yPos);
+		ellip.setAttribute("stroke", s);
+		ellip.setAttribute("stroke-width", sw);
+		ellip.setAttribute("onclick", "edit(this)");
+		ellip.setAttribute("transform", "matrix(1 0 0 1 0 0)");
+		ellip.setAttribute("onmousedown", "selectElement(evt)");
 	}
 
-
 	function rectangle() {
-		width.value = w;
-		height.value = h;
-		xradius.value = xr;
-		yradius.value = yr;
-		xposition.value = xPos;
-		yposition.value = yPos;
-		click.value = "edit(this)";
-
 		var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 		document.getElementById("svg").appendChild(rect);
 
-		rect.setAttributeNode(width);
-		rect.setAttributeNode(height);
-		rect.setAttributeNode(xradius);
-		rect.setAttributeNode(yradius);
-		rect.setAttributeNode(fill);
-		rect.setAttributeNode(xposition);
-		rect.setAttributeNode(yposition);
-		rect.setAttributeNode(stroke);
-		rect.setAttributeNode(strokeWidth);
-		rect.setAttributeNode(click);
-		rect.setAttributeNode(trans);
-		rect.setAttributeNode(move);
+		rect.setAttribute("width", w);
+		rect.setAttribute("height", h);
+		rect.setAttribute("rx", xr);
+		rect.setAttribute("ry", yr);
+		rect.setAttribute("fill", color);
+		rect.setAttribute("x", xPos);
+		rect.setAttribute("y", yPos);
+		rect.setAttribute("stroke", s);
+		rect.setAttribute("stroke-width", sw);
+		rect.setAttribute("onclick", "edit(this)");
+		rect.setAttribute("transform", "matrix(1 0 0 1 0 0)");
+		rect.setAttribute("onmousedown", "selectElement(evt)");
 	}
 
-
 	function line() {
-		fxposition.value = xPos;
-		fyposition.value = yPos;
-		exposition.value = xEnd;
-		eyposition.value = yEnd;
-		click.value = "edit2(this)";
-
 		var lin = document.createElementNS("http://www.w3.org/2000/svg", "line");
 		document.getElementById("svg").appendChild(lin);
 
-		lin.setAttributeNode(fxposition);
-		lin.setAttributeNode(fyposition);
-		lin.setAttributeNode(exposition);
-		lin.setAttributeNode(eyposition);
-		lin.setAttributeNode(stroke);
-		lin.setAttributeNode(strokeWidth);
-		lin.setAttributeNode(click);
-		lin.setAttributeNode(trans);
-		lin.setAttributeNode(move);
+		lin.setAttribute("x1", xPos);
+		lin.setAttribute("y1", yPos);
+		lin.setAttribute("x2", xEnd);
+		lin.setAttribute("y2", yEnd);
+		lin.setAttribute("stroke", s);
+		lin.setAttribute("stroke-width", sw);
+		lin.setAttribute("onclick", "edit2(this)");
+		lin.setAttribute("transform", "matrix(1 0 0 1 0 0)");
+		lin.setAttribute("onmousedown", "selectElement(evt)");
 	}
-
 
 	function polygon() {
 		var point1 = cont.childNodes[0].value;
@@ -407,19 +348,16 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 			var point10 = cont.childNodes[9].value;
 			points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6+" "+point7+","+point8+" "+point9+","+point10;
 		}
-
-		click.value = "edit3(this)";
-
 		var poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
 		document.getElementById("svg").appendChild(poly);
 
-		poly.setAttributeNode(stroke);
-		poly.setAttributeNode(strokeWidth);
-		poly.setAttributeNode(fill);
+		poly.setAttribute("stroke", s);
+		poly.setAttribute("stroke-width", sw);
+		poly.setAttribute("fill", color);
 		poly.setAttributeNode(points);
-		poly.setAttributeNode(click);
-		poly.setAttributeNode(trans);
-		poly.setAttributeNode(move);
+		poly.setAttribute("onclick", "edit3(this)");
+		poly.setAttribute("transform", "matrix(1 0 0 1 0 0)");
+		poly.setAttribute("onmousedown", "selectElement(evt)");
 	}
 }
 
