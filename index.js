@@ -48,6 +48,7 @@ function Crectangle() {
 	for(var i = 0; i < 9; ++i) {
 		inputs[i].style.display = "inline";
 	}
+	inputs[9].style.display = "none";
 	inputs[10].style.display = "none";
 
 	inputs[1].placeholder= "x value";
@@ -533,12 +534,12 @@ function edit(rect,cir,ellip) {
 }
 
 function toggleBG() {
-		var field = document.getElementById("svg");
-	if(bg==false){
+	var field = document.getElementById("svg");
+	if(bg==false) {
 		field.style.background = "url('square.png')";
 		bg = true;
 	}
-	else{
+	else {
 		field.style.background = "";
 		bg = false;
 	}

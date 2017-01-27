@@ -45,7 +45,7 @@
 			    ]]>
 	    	</script>
 		</svg>
-		<br>
+		<div class="user">
 		<select>
 			<option>Shapes</option>
 			<option onclick="Ccircle()">circle</option>
@@ -56,26 +56,30 @@
 			<option onclick="Cpolygon()">polygon</option>
 			<option>path</option>
 		</select>
-
-		<input class="hide" id="txt1" type="text" placeholder="Color in HEX"/><!--[0]-->
-		<input class="hide" id="txt3" type="text" placeholder="x value"/><!--[1]-->
-		<input class="hide" id="txt4" type="text" placeholder="y value"/><!--[2]-->
-		<input class="hide" id="txt5" type="text" placeholder="stroke color"/><!--[3]-->
-		<input class="hide" id="txt6" type="text" placeholder="stroke width"/><!--[4]-->
-		<input class="hide" id="txt7" type="text" placeholder="width"/><!--[5]-->
-		<input class="hide" id="txt8" type="text" placeholder="height"/><!--[6]-->
-		<input class="hide" id="txt2" type="text" placeholder="radius length X"/><!--[7] - used to be [1]-->
-		<input class="hide" id="txt9" type="text" placeholder="radius length Y"/><!--[8]-->
-		<input class="hide" type="button" value="Set Point #" onclick="setPoints()"/><!--[9]-->
-		<input class="hide" id="txt10" type="text" placeholder="text"/><!--[10]-->
-		<input type="button" value="toggle background" onclick="toggleBG()"/>
-		<input type="button" value="submit" onclick="create()">
-		<input type="button" value="save" onclick="save()">
-
+		<br>
+		<div class="inputs">
+			<input class="hide in" id="txt1" type="text" placeholder="Color in HEX"/><!--[0]-->
+			<input class="hide in" id="txt3" type="text" placeholder="x value"/><!--[1]-->
+			<input class="hide in" id="txt4" type="text" placeholder="y value"/><!--[2]-->
+			<input class="hide in" id="txt5" type="text" placeholder="stroke color"/><!--[3]-->
+			<input class="hide in" id="txt6" type="text" placeholder="stroke width"/><!--[4]-->
+			<input class="hide in" id="txt7" type="text" placeholder="width"/><!--[5]-->
+			<input class="hide in" id="txt8" type="text" placeholder="height"/><!--[6]-->
+			<input class="hide in" id="txt2" type="text" placeholder="radius length X"/><!--[7] - used to be [1]-->
+			<input class="hide in" id="txt9" type="text" placeholder="radius length Y"/><!--[8]-->
+			<input class="hide btn" type="button" value="Set Point #" onclick="setPoints()"/><!--[9]-->
+			<input class="hide in" id="txt10" type="text" placeholder="text"/><!--[10]-->
+		</div>
+		<br>
+		<input class="btn" type="button" value="toggle background" onclick="toggleBG()"/>
+		<input class="btn" type="button" value="submit" onclick="create()">
+		<input class="btn" type="button" value="save" onclick="save()">
+</div>
 		<div id="container">
 		</div>
 
 		<link rel="stylesheet" type="text/css" href="index.css">
+		<link rel="stylesheet" type="text/css" href="suite.css">
 		<script type="text/javascript" src="index.js"></script><!--load content before download script-->
 		<script type="text/javascript" src="download.js"></script>
 	</body>

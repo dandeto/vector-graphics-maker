@@ -1,0 +1,64 @@
+/*Finesse*/
+svg{
+	float:left;
+}
+
+body{
+	background-color: #101010;
+}
+
+.in {
+	background-color: #505050; 
+	color: #000000;
+	border-style: inset;
+	border-color: #000000;
+	border-width: .05%;
+	text-align: center;/*disgusting? cool?*/
+	padding:.2%;
+	margin: .2%;
+	/*border-radius: 4px;
+	need to differentiate between inputs and buttons and dropdowns...
+	*/
+}
+
+.inputs{
+	background-color:red;
+	padding:1%;
+	margin: 1%;
+	margin-left: 0%;
+}
+
+.user{
+	background-color:green;
+	margin:1%;
+	padding:1%;
+	margin-left: 66%;
+	padding-left:5%;
+}
+
+.btn {
+	background-color: #404040;
+	color: #000030;
+	border-style: inset;
+	border-color: #00001F;
+	border-radius: 5px;
+	padding:.2%;
+	padding-left: 1%;
+	padding-right: 1%;
+	margin: .2%;
+}
+
+select{
+  background-color: #404040;
+	color: #000030;
+	border-color: #00001F;
+	padding:.2%;
+	margin: .2%;
+	border-radius: 5px;
+	text-align: center;
+}
+
+option {/*doesn't work...*/
+	background-color: #505050;
+	text-align: center;
+}
