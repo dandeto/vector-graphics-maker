@@ -1,5 +1,17 @@
 <html>
+	<head>
+		<title>Vector Graphics Design Suite</title>
+		<div class="wrapper">
+			<h2>Vector Graphics Design Suite</h2>
+			<div class="menu">
+				<div class="item" onclick="wipe();directions();">Directions</div>
+				<div class="item" onclick="wipe();resize();">Set Canvas Size</div>
+				<div class="item" onclick="wipe();saveSession();">Save Session</div>
+			</div>
+		</div>
+	</head>
 	<body>
+		<p class="directions">Directions: ashiodahiodhiaodihoahs<br>ahiosdhaodhisaohdohaodh</p>
 		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
 			<script type="text/ecmascript"><![CDATA[
 			    var selectedElement = 0;
@@ -46,41 +58,40 @@
 	    	</script>
 		</svg>
 		<div class="user">
-		<select>
-			<option>Shapes</option>
-			<option onclick="Ccircle()">circle</option>
-			<option onclick="Crectangle()">rectangle</option>
-			<option onclick="Cellipse()">ellipse</option>
-			<option onclick="Cline()">line</option>
-			<option onclick="Ctext()">text</option>
-			<option onclick="Cpolygon()">polygon</option>
-			<option>path</option>
-		</select>
-		<br>
-		<div class="inputs">
-			<input class="hide in" id="txt1" type="text" placeholder="Color in HEX"/><!--[0]-->
-			<input class="hide in" id="txt3" type="text" placeholder="x value"/><!--[1]-->
-			<input class="hide in" id="txt4" type="text" placeholder="y value"/><!--[2]-->
-			<input class="hide in" id="txt5" type="text" placeholder="stroke color"/><!--[3]-->
-			<input class="hide in" id="txt6" type="text" placeholder="stroke width"/><!--[4]-->
-			<input class="hide in" id="txt7" type="text" placeholder="width"/><!--[5]-->
-			<input class="hide in" id="txt8" type="text" placeholder="height"/><!--[6]-->
-			<input class="hide in" id="txt2" type="text" placeholder="radius length X"/><!--[7] - used to be [1]-->
-			<input class="hide in" id="txt9" type="text" placeholder="radius length Y"/><!--[8]-->
-			<input class="hide btn" type="button" value="Set Point #" onclick="setPoints()"/><!--[9]-->
-			<input class="hide in" id="txt10" type="text" placeholder="text"/><!--[10]-->
+			<select>
+				<option>Shapes</option>
+				<option onclick="Ccircle()">circle</option>
+				<option onclick="Crectangle()">rectangle</option>
+				<option onclick="Cellipse()">ellipse</option>
+				<option onclick="Cline()">line</option>
+				<option onclick="Ctext()">text</option>
+				<option onclick="Cpolygon()">polygon</option>
+				<option>path</option>
+			</select>
+			<br>
+			<div class="inputs">
+				<input class="hide in" id="txt1" type="text" placeholder="Color in HEX"/><!--[0]-->
+				<input class="hide in" id="txt3" type="text" placeholder="x value"/><!--[1]-->
+				<input class="hide in" id="txt4" type="text" placeholder="y value"/><!--[2]-->
+				<input class="hide in" id="txt5" type="text" placeholder="stroke color"/><!--[3]-->
+				<input class="hide in" id="txt6" type="text" placeholder="stroke width"/><!--[4]-->
+				<input class="hide in" id="txt7" type="text" placeholder="width"/><!--[5]-->
+				<input class="hide in" id="txt8" type="text" placeholder="height"/><!--[6]-->
+				<input class="hide in" id="txt2" type="text" placeholder="radius length X"/><!--[7] - used to be [1]-->
+				<input class="hide in" id="txt9" type="text" placeholder="radius length Y"/><!--[8]-->
+				<input class="hide btn" type="button" value="Set Point #" onclick="setPoints()"/><!--[9]-->
+				<input class="hide in" id="txt10" type="text" placeholder="text"/><!--[10]-->
+					<div id="container">
+					</div>
+			</div>
+			<input class="btn" type="button" value="toggle background" onclick="toggleBG()"/>
+			<input class="btn" type="button" value="submit" onclick="create()">
+			<input class="btn" type="button" value="save" onclick="save()">
 		</div>
-		<br>
-		<input class="btn" type="button" value="toggle background" onclick="toggleBG()"/>
-		<input class="btn" type="button" value="submit" onclick="create()">
-		<input class="btn" type="button" value="save" onclick="save()">
-</div>
-		<div id="container">
-		</div>
-
 		<link rel="stylesheet" type="text/css" href="index.css">
 		<link rel="stylesheet" type="text/css" href="suite.css">
 		<script type="text/javascript" src="index.js"></script><!--load content before download script-->
+		<script type="text/javascript" src="suite.js"></script>
 		<script type="text/javascript" src="download.js"></script>
 	</body>
 </html>

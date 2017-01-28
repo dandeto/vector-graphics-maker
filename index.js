@@ -187,10 +187,12 @@ function setPoints() {
 			var x = document.createElement("INPUT");
    			x.setAttribute("type", "text");
    			x.setAttribute("placeholder", "X value");
+   			x.setAttribute("class", "in");
     		cont.appendChild(x);
     		var y = document.createElement("INPUT");
     		y.setAttribute("type", "text");
    			y.setAttribute("placeholder", "Y value");
+   			y.setAttribute("class", "in");
    			cont.appendChild(y);
     	}
 	}
