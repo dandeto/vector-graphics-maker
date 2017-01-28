@@ -124,6 +124,18 @@ function resize() {
 	svg.appendChild(elem);
 }
 
-function saveSession() { //LS
-	alert("save session");
+function saveSession() {
+	if (window.localStorage) {
+		localStorage.svg = svg.innerHTML;
+	}else{
+		alert("you don't have access to localstorage capabilities in this browser.");
+	}
+}
+
+(function () {
+    svg.innerHTML = localStorage.svg;
+})(); 
+
+function resetSession() {
+	localStorage.removeItem("svg");
 }
