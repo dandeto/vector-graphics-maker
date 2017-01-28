@@ -1,8 +1,4 @@
 /*Finesse*/
-body {
-	background-color: #101010;
-}
-
 .wrapper {
 	background-color: #1A1A1A;
 }
@@ -22,13 +18,41 @@ h2 {
 
 .item {
 	display: inline;
-	margin: 3%;
-	padding: 2%;
+	margin-left: 3%;
+	margin-right: 3%;
+	padding: 1%;
 	cursor:pointer;
+}
+
+body {
+	background-color: #101010;
+}
+
+@font-face {
+    font-family: gota;
+    src: url(Gota.otf);
+}
+
+.gota {
+    font-family: gota;
+}
+
+@font-face {
+    font-family: mario;
+    src: url(Mario.ttf);
+}
+
+.mario {
+    font-family: mario;
 }
 
 .directions {
 	display: none;
+	float: left;
+	margin: 5%;
+	padding: 5%;
+	background-color: #70707A;
+	font-size: 130%;
 }
 
 svg{

@@ -2,16 +2,25 @@
 	<head>
 		<title>Vector Graphics Design Suite</title>
 		<div class="wrapper">
-			<h2>Vector Graphics Design Suite</h2>
-			<div class="menu">
-				<div class="item" onclick="wipe();directions();">Directions</div>
+			<h2 class="gota">Vector Graphics Design Suite</h2>
+			<div class="menu mario">
+				<div class="item" onclick="directions()">Directions</div>
 				<div class="item" onclick="wipe();resize();">Set Canvas Size</div>
 				<div class="item" onclick="wipe();saveSession();">Save Session</div>
+				<div class="item" onclick="">About</div>
 			</div>
 		</div>
 	</head>
 	<body>
-		<p class="directions">Directions: ashiodahiodhiaodihoahs<br>ahiosdhaodhisaohdohaodh</p>
+		<p class="directions mario">Directions: <br>Use the panel on the right to create your
+		<br> vector graphics. The Shapes dropdown menu will <br> allow you to select which 
+		shape you want to create.<br> Upon selecting a shape, several input fields will appear
+		.<br>The graphic will be created by your specifications.<br> Hit submit to create your
+		 shape.<br> If you wish to change any attribute, change the value<br> in the input
+		  field and left click the shape. You may <br>move the graphic by clicking and 
+		  dragging it.<br> Click the save button to the right to save <br>your graphic to your 
+		  computer. Click Save session to save<br> your current session. Click the 
+		  Directions button<br> again to close this.</p>
 		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
 			<script type="text/ecmascript"><![CDATA[
 			    var selectedElement = 0;
