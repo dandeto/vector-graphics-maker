@@ -46,6 +46,15 @@ body {
     font-family: mario;
 }
 
+@font-face {
+    font-family: vanilla;
+    src: url(VanillaExtractRegular.ttf);
+}
+
+.vanilla {
+    font-family: vanilla;
+}
+
 .directions {
 	display: none;
 	float: left;
@@ -55,7 +64,20 @@ body {
 	font-size: 130%;
 }
 
-svg{
+.resize{
+	display: inline;
+}
+
+#change {
+	display: none;
+	float: left;
+	margin: 5%;
+	padding: 5%;
+	background-color: #70707A;
+	font-size: 130%;
+}
+
+svg {
 	float:left;
 }
 
@@ -67,6 +89,7 @@ select {
 	margin: .2%;
 	border-radius: 5px;
 	text-align: center;
+	font-family: inherit;
 }
 
 select:hover, .btn:hover {
@@ -86,19 +109,24 @@ option {/*doesn't work...*/
 	text-align: center;
 }
 
-.user{
+.user {
 	background-color: #1D1D1D;
 	margin:1%;
 	padding:1%;
 	margin-left: 66%;
 	padding-left:5%;
+	font-family: vanilla;
 }
 
-.inputs{
+.inputs {
 	background-color: #1D1D1D;
 	padding:1%;
 	margin: 1%;
 	margin-left: 0%;
+}
+
+input {
+	font-family: inherit;
 }
 
 .in {
@@ -108,8 +136,9 @@ option {/*doesn't work...*/
 	border-color: #000000;
 	border-width: .05%;
 	text-align: center;/*disgusting? cool?*/
-	padding:.2%;
-	margin: .2%;
+	padding: .2%;
+	margin-top: 1%;
+	margin-bottom: 1%;
 	/*border-radius: 4px;
 	need to differentiate between inputs and buttons and dropdowns...
 	*/

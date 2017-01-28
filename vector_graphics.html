@@ -4,23 +4,34 @@
 		<div class="wrapper">
 			<h2 class="gota">Vector Graphics Design Suite</h2>
 			<div class="menu mario">
-				<div class="item" onclick="directions()">Directions</div>
-				<div class="item" onclick="wipe();resize();">Set Canvas Size</div>
-				<div class="item" onclick="wipe();saveSession();">Save Session</div>
-				<div class="item" onclick="">About</div>
+				<div class="item" onclick="set()">Directions</div>
+				<div class="item" onclick="set2()">Set Canvas Size</div>
+				<div class="item" onclick="saveSession();">Save Session</div>
+				<div class="item" onclick="resetSession();">Reset Session</div>
+				<div class="item" onclick="set3()">About</div>
 			</div>
 		</div>
 	</head>
 	<body>
-		<p class="directions mario">Directions: <br>Use the panel on the right to create your
+		<p class="directions mario">Directions:<br>Use the panel on the right to create your
 		<br> vector graphics. The Shapes dropdown menu will <br> allow you to select which 
 		shape you want to create.<br> Upon selecting a shape, several input fields will appear
 		.<br>The graphic will be created by your specifications.<br> Hit submit to create your
 		 shape.<br> If you wish to change any attribute, change the value<br> in the input
 		  field and left click the shape. You may <br>move the graphic by clicking and 
 		  dragging it.<br> Click the save button to the right to save <br>your graphic to your 
-		  computer. Click Save session to save<br> your current session. Click the 
-		  Directions button<br> again to close this.</p>
+		  computer. Click Save session to save<br> your current session.<br>
+		  <input class="btn" type="button" value="exit" onclick="set()"></p>
+
+		  <p id="change" class="mario"> Resize SVG in Pixles:<br>
+		  	<input class="in resize" type="text" placeholder="width"/>
+		  	<input class="in resize" type="text" placeholder="height"/>
+		  	<br>
+		  	<input class="btn" type="button" value="submit" onclick="resize()">
+		  	<input class="btn" type="button" value="exit" onclick="set2()">
+		  </p>
+
+		  <p id="about" class="directions mario">About:<br> Fonts: Mariomaker lato gota vinilla extract</p>
 		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
 			<script type="text/ecmascript"><![CDATA[
 			    var selectedElement = 0;
@@ -93,7 +104,7 @@
 					<div id="container">
 					</div>
 			</div>
-			<input class="btn" type="button" value="toggle background" onclick="toggleBG()"/>
+			<input class="btn" type="button" value="toggle grid" onclick="toggleBG()"/>
 			<input class="btn" type="button" value="submit" onclick="create()">
 			<input class="btn" type="button" value="save" onclick="save()">
 		</div>
