@@ -22,12 +22,10 @@ function wipe() { //wipe everything
 	direct[0].style.opacity = 0;
 	setTimeout(function(){
   		svg.style.display = "none";
-  		setTimeout(function() {
-				change.style.display = "none";
-				about.style.display = "none";
-				settings.style.display = "none";
-				direct[0].style.display = "none";
-		}, 1050);
+		change.style.display = "none";
+		about.style.display = "none";
+		settings.style.display = "none";
+		direct[0].style.display = "none";
 	}, 500);
 }
 
@@ -85,16 +83,14 @@ function fade() {
 			wipe();
 			setTimeout(function() { //otherwise weird things happen
 				restore();
-			}, 1050);
+			}, 550);
 			break;
 		case 1: //wipe everything and display directions
 			wipe();
 			setTimeout(function() {
 				direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
 				direct[0].style.opacity = 1;
-				setTimeout(function() {
-					direct[0].style.display = "inline";
-				}, 1050);
+				direct[0].style.display = "inline";
 			}, 550);
 			break;
 		case 2: //wipe everything and display Canvas resizer
@@ -102,9 +98,7 @@ function fade() {
 			setTimeout(function() {
 				change.style.transition = "opacity 0.5s linear 0s";
 				change.style.opacity = 1;
-				setTimeout(function() {
-					change.style.display = "inline";
-				}, 1050);
+				change.style.display = "inline";
 			}, 550);
 			break;
 		case 3:
@@ -112,9 +106,7 @@ function fade() {
 			setTimeout(function() {
 				about.style.transition = "opacity 0.5s linear 0s";
 				about.style.opacity = 1;
-				setTimeout(function() {
-					about.style.display = "inline";
-				}, 1050);
+				about.style.display = "inline";
 			}, 550);
 			break;
 		case 4:
@@ -122,9 +114,7 @@ function fade() {
 			setTimeout(function() {
 				settings.style.transition = "opacity 0.5s linear 0s";
 				settings.style.opacity = 1;
-				setTimeout(function() {
-					settings.style.display = "inline";
-				}, 1050);
+				settings.style.display = "inline";
 			}, 550);
 			break;
 	}
