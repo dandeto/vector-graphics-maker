@@ -31,10 +31,10 @@ function wipe() { //wipe everything
 }
 
 function restore() {
-	svg.style.transition = "opacity 0.5s linear 0s";//no transition...
-	svg.style.opacity = 1;
+	svg.style.display = "inline";
 	setTimeout(function(){
-  		svg.style.display = "inline";
+  		svg.style.transition = "opacity 0.5s linear 0s";//no transition...
+	svg.style.opacity = 1;
 	}, 500);
 }
 
@@ -93,33 +93,41 @@ function fade() {
 		case 1: //wipe everything and display directions
 			wipe();
 			setTimeout(function() {
-				direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
-				direct[0].style.opacity = 1;
 				direct[0].style.display = "inline";
+				setTimeout(function() {
+					direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
+					direct[0].style.opacity = 1;
+				}, 1050);
 			}, 550);
 			break;
 		case 2: //wipe everything and display Canvas resizer
 			wipe();
 			setTimeout(function() {
-				change.style.transition = "opacity 0.5s linear 0s";
-				change.style.opacity = 1;
 				change.style.display = "inline";
+				setTimeout(function() {
+					change.style.transition = "opacity 0.5s linear 0s";
+					change.style.opacity = 1;
+				}, 1050);
 			}, 550);
 			break;
 		case 3:
 			wipe();
 			setTimeout(function() {
-				about.style.transition = "opacity 0.5s linear 0s";
-				about.style.opacity = 1;
 				about.style.display = "inline";
+				setTimeout(function() {
+					about.style.transition = "opacity 0.5s linear 0s";
+					about.style.opacity = 1;
+				}, 1050);
 			}, 550);
 			break;
 		case 4:
 			wipe();
 			setTimeout(function() {
-				settings.style.transition = "opacity 0.5s linear 0s";
-				settings.style.opacity = 1;
 				settings.style.display = "inline";
+				setTimeout(function() {
+					settings.style.transition = "opacity 0.5s linear 0s";
+					settings.style.opacity = 1;
+				}, 1050);
 			}, 550);
 			break;
 	}
