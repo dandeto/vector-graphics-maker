@@ -21,7 +21,7 @@ function wipe() { //wipe everything
 	settings.style.opacity = 0;
 	direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
 	direct[0].style.opacity = 0;
-	setTimeout(function(){
+	setTimeout(function() {
   		svg.style.display = "none";
 		change.style.display = "none";
 		about.style.display = "none";
