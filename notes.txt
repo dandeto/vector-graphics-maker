@@ -1,6 +1,0 @@
-fade svg in and out
-make user set SVG size.
-Directions.
-Header and heading
-saving session via LS
-reset session
