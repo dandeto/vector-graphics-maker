@@ -3,7 +3,13 @@ var svg = document.getElementById("svg");
 var direct = document.querySelectorAll(".directions");
 var change = document.getElementById("change");
 var about = document.getElementById("about");
+var settings = document.getElementById("settings");
+var music = document.getElementById("audio1");
+var sfx1 = document.getElementById("audio2");
+var sfx2 = document.getElementById("audio3");
 var display = 0;
+//var playing = localStorage.audio;
+//localStorage.audio = "1";
 
 function wipe() { //wipe everything
   	svg.style.transition = "opacity 0.5s linear 0s";
@@ -12,6 +18,8 @@ function wipe() { //wipe everything
 	change.style.opacity = 0;
 	about.style.transition = "opacity 0.5s linear 0s";//no transition...
 	about.style.opacity = 0;
+	settings.style.transition = "opacity 0.5s linear 0s";//no transition...
+	settings.style.opacity = 0;
 	direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
 	direct[0].style.opacity = 0;
 	setTimeout(function(){
@@ -19,6 +27,7 @@ function wipe() { //wipe everything
   		setTimeout(function() {
 				change.style.display = "none";
 				about.style.display = "none";
+				settings.style.display = "none";
 				direct[0].style.display = "none";
 		}, 1050);
 	}, 500);
@@ -62,6 +71,16 @@ function set3() { //about
 	}
 }
 
+function set4() { //settings
+	if(display == 4) {
+		display = 0;
+		fade();
+	}else {
+		display = 4;
+		fade();
+	}
+}
+
 function fade() {
 	switch(display) {
 		case 0: //wipe everything and restore svg
@@ -86,9 +105,9 @@ function fade() {
 			console.log("case 2");
 			wipe();
 			setTimeout(function() {
-				change.style.transition = "opacity 0.5s linear 0s";//no transition...
+				change.style.transition = "opacity 0.5s linear 0s";
 				change.style.opacity = 1;
-				setTimeout(function( ){
+				setTimeout(function() {
 					change.style.display = "inline";
 				}, 1050);
 			}, 550);
@@ -97,10 +116,21 @@ function fade() {
 			console.log("case 3");
 			wipe();
 			setTimeout(function() {
-				about.style.transition = "opacity 0.5s linear 0s";//no transition...
+				about.style.transition = "opacity 0.5s linear 0s";
 				about.style.opacity = 1;
-				setTimeout(function(){
+				setTimeout(function() {
 					about.style.display = "inline";
+				}, 1050);
+			}, 550);
+			break;
+		case 4:
+			console.log("case 4");
+			wipe();
+			setTimeout(function() {
+				settings.style.transition = "opacity 0.5s linear 0s";
+				settings.style.opacity = 1;
+				setTimeout(function() {
+					settings.style.display = "inline";
 				}, 1050);
 			}, 550);
 			break;
@@ -119,7 +149,7 @@ function resize() {
 }
 
 function saveSession() {
-	document.getElementById("audio2").play();
+	sfx1.play();
 	if (window.localStorage) {
 		localStorage.save = "1";
 		var sw = svg.getAttribute("width");//in this scope so it can be updated.
@@ -133,6 +163,16 @@ function saveSession() {
 	}
 }
 (function () {
+	if(localStorage.audio == "0") {
+		mute();
+	}else {
+		localStorage.audio = "1";
+	}
+	if(localStorage.sfx == "0") {
+		muteSFX();
+	}else {
+		localStorage.sfx = "1";
+	}
 	if (localStorage.save == "1") {
 		svg.innerHTML = localStorage.svg;
     	svg.setAttribute("width", localStorage.width);
@@ -141,7 +181,7 @@ function saveSession() {
 })(); 
 
 function resetSession() {
-	document.getElementById("audio3").play();
+	sfx2.play();
 	setTimeout(function() {
 		localStorage.removeItem("svg");
 		localStorage.removeItem("width");
@@ -149,4 +189,27 @@ function resetSession() {
 		localStorage.save = "0";
 		location.reload();
 	}, 750);
+}
+
+function mute() {
+	music.pause();
+	music.currentTime = 0;
+	localStorage.audio = "0";
+}
+
+function start() {
+	music.play();
+	localStorage.audio = "1";
+}
+
+function muteSFX() {
+	sfx1.muted = true;
+	sfx2.muted = true;
+	localStorage.sfx = "0";
+}
+
+function startSFX() {
+	sfx1.muted = false;
+	sfx2.muted = false;
+	localStorage.sfx = "1";
 }
