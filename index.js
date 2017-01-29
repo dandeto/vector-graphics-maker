@@ -141,10 +141,9 @@ function Ctext() {
 
 	removeCont();
 
-	for (var i = 0; i < 4; ++i) {//cycle through nodes 0-4 with class of inputs
+	for (var i = 0; i < 5; ++i) {//cycle through nodes 0-4 with class of inputs
 		inputs[i].style.display = "inline";
 	}
-	inputs[5].style.display = "none";
 	inputs[6].style.display = "none";
 	inputs[7].style.display = "inline";
 	inputs[8].style.display = "none";
