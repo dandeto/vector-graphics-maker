@@ -33,36 +33,30 @@ function restore() {
 }
 
 function set() {
-	if(display == 1) {
-		console.log("if");
+	if(display == 1) { // Directions
 		display = 0;
 		fade();
 	}else {
-		console.log("else");
 		display = 1;
 		fade();
 	}
 }
 
-function set2() {
+function set2() { // svg size
 	if(display == 2) {
-		console.log("if");
 		display = 0;
 		fade();
 	}else {
-		console.log("else");
 		display = 2;
 		fade();
 	}
 }
 
-function set3() {
+function set3() { //about
 	if(display == 3) {
-		console.log("if");
 		display = 0;
 		fade();
 	}else {
-		console.log("else");
 		display = 3;
 		fade();
 	}
@@ -105,7 +99,7 @@ function fade() {
 			setTimeout(function() {
 				about.style.transition = "opacity 0.5s linear 0s";//no transition...
 				about.style.opacity = 1;
-				setTimeout(function( ){
+				setTimeout(function(){
 					about.style.display = "inline";
 				}, 1050);
 			}, 550);
@@ -125,17 +119,34 @@ function resize() {
 }
 
 function saveSession() {
+	document.getElementById("audio2").play();
 	if (window.localStorage) {
+		localStorage.save = "1";
+		var sw = svg.getAttribute("width");//in this scope so it can be updated.
+		var sh = svg.getAttribute("height");
 		localStorage.svg = svg.innerHTML;
-	}else{
+		localStorage.width = sw;
+		localStorage.height = sh;
+		console.log(sw + " " + sh);
+	}else {
 		alert("you don't have access to localstorage capabilities in this browser.");
 	}
 }
-
 (function () {
-    svg.innerHTML = localStorage.svg;
+	if (localStorage.save == "1") {
+		svg.innerHTML = localStorage.svg;
+    	svg.setAttribute("width", localStorage.width);
+    	svg.setAttribute("height", localStorage.height);
+	}
 })(); 
 
 function resetSession() {
-	localStorage.removeItem("svg");
+	document.getElementById("audio3").play();
+	setTimeout(function() {
+		localStorage.removeItem("svg");
+		localStorage.removeItem("width");
+		localStorage.removeItem("height");
+		localStorage.save = "0";
+		location.reload();
+	}, 750);
 }
