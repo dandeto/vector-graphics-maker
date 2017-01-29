@@ -2,16 +2,56 @@
 	<head>
 		<title>Vector Graphics Design Suite</title>
 		<div class="wrapper">
-			<h2>Vector Graphics Design Suite</h2>
-			<div class="menu">
-				<div class="item" onclick="wipe();directions();">Directions</div>
-				<div class="item" onclick="wipe();resize();">Set Canvas Size</div>
-				<div class="item" onclick="wipe();saveSession();">Save Session</div>
+			<h2 class="gota">Vector Graphics Design Suite</h2>
+			<div class="menu mario">
+				<div class="item" onclick="set()">Directions</div>
+				<div class="item" onclick="set2()">Set SVG Size</div>
+				<div class="item" onclick="saveSession();">Save Session</div>
+				<div class="item" onclick="resetSession();">Reset Session</div>
+				<div class="item" onclick="set4()">Settings</div>
+				<div class="item" onclick="set3()">About</div>
 			</div>
 		</div>
 	</head>
 	<body>
-		<p class="directions">Directions: ashiodahiodhiaodihoahs<br>ahiosdhaodhisaohdohaodh</p>
+		<p class="directions mario">
+			Directions:<br>Use the panel on the right to create your
+			<br> vector graphics. The Shapes dropdown menu will <br> allow you to select which 
+			shape you want to create.<br> Upon selecting a shape, several input fields will 
+			appear.<br>The graphic will be created by your specifications.<br> Hit submit to 
+			create your shape. If you wish to change<br> any attribute, change the value 
+			in the input field<br> and left click the shape. Hexadecimal colors supported.<br>
+			You may move the graphic by clicking and dragging it.<br> Click the save button to 
+			the right to save your graphic<br> to your computer.<br>
+		  	<input class="btn" type="button" value="exit" onclick="set()">
+		</p>
+
+		<p id="change" class="mario"> Resize SVG in Pixles:<br>
+		  	<input class="in resize" type="text" placeholder="width"/>
+		  	<input class="in resize" type="text" placeholder="height"/>
+		  	<br>
+		  	<input class="btn" type="button" value="submit" onclick="resize()">
+		  	<input class="btn" type="button" value="Exit" onclick="set2()">
+		</p>
+
+		<p id="about" class="directions mario">
+		  	About:<br> Programmed by: Daniel Mills<br>
+		  	Fonts: Mariomaker, Lato, Gota, VanillaExtract.<br>Music by: Daniel Mills<br>
+		  	<input class="btn" type="button" value="Exit" onclick="set3()">
+		</p>
+
+		<p id="about" class="directions mario">About:<br> Programmed by: Daniel Mills<br>
+			Fonts: Mariomaker, Lato, Gota, VanillaExtract.<br>Music by: Daniel Mills<br>
+			<input class="btn" type="button" value="Exit" onclick="set3()">
+		</p>
+
+		<p id="settings" class="directions mario">Settings:<br>
+			<input class="btn" type="button" value="Mute Audio" onclick="mute()">
+			<input class="btn" type="button" value="Play Audio" onclick="start()"><br>
+			<input class="btn" type="button" value="Mute Sound Effects" onclick="muteSFX()">
+			<input class="btn" type="button" value="Play Sound Effects" onclick="startSFX()">
+			<input class="btn" type="button" value="Exit" onclick="set4()">
+		</p>
 		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
 			<script type="text/ecmascript"><![CDATA[
 			    var selectedElement = 0;
@@ -70,7 +110,7 @@
 			</select>
 			<br>
 			<div class="inputs">
-				<input class="hide in" id="txt1" type="text" placeholder="Color in HEX"/><!--[0]-->
+				<input class="hide in" id="txt1" type="text" placeholder="color"/><!--[0]-->
 				<input class="hide in" id="txt3" type="text" placeholder="x value"/><!--[1]-->
 				<input class="hide in" id="txt4" type="text" placeholder="y value"/><!--[2]-->
 				<input class="hide in" id="txt5" type="text" placeholder="stroke color"/><!--[3]-->
@@ -84,10 +124,19 @@
 					<div id="container">
 					</div>
 			</div>
-			<input class="btn" type="button" value="toggle background" onclick="toggleBG()"/>
+			<input class="btn" type="button" value="toggle grid" onclick="toggleBG()"/>
 			<input class="btn" type="button" value="submit" onclick="create()">
 			<input class="btn" type="button" value="save" onclick="save()">
 		</div>
+		<audio id="audio1" loop="true" autoplay="true">
+			<source src="suite.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="audio2">
+			<source src="save.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="audio3">
+			<source src="reset.mp3" type="audio/mpeg">
+		</audio>
 		<link rel="stylesheet" type="text/css" href="index.css">
 		<link rel="stylesheet" type="text/css" href="suite.css">
 		<script type="text/javascript" src="index.js"></script><!--load content before download script-->
