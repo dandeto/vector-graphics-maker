@@ -3,6 +3,10 @@ var svg = document.getElementById("svg");
 var direct = document.querySelectorAll(".directions");
 var change = document.getElementById("change");
 var about = document.getElementById("about");
+var settings = document.getElementById("settings");
+var music = document.getElementById("audio1");
+var sfx1 = document.getElementById("audio2");
+var sfx2 = document.getElementById("audio3");
 var display = 0;
 
 function wipe() { //wipe everything
@@ -12,6 +16,8 @@ function wipe() { //wipe everything
 	change.style.opacity = 0;
 	about.style.transition = "opacity 0.5s linear 0s";//no transition...
 	about.style.opacity = 0;
+	settings.style.transition = "opacity 0.5s linear 0s";//no transition...
+	settings.style.opacity = 0;
 	direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
 	direct[0].style.opacity = 0;
 	setTimeout(function(){
@@ -19,6 +25,7 @@ function wipe() { //wipe everything
   		setTimeout(function() {
 				change.style.display = "none";
 				about.style.display = "none";
+				settings.style.display = "none";
 				direct[0].style.display = "none";
 		}, 1050);
 	}, 500);
@@ -33,37 +40,41 @@ function restore() {
 }
 
 function set() {
-	if(display == 1) {
-		console.log("if");
+	if(display == 1) { // Directions
 		display = 0;
 		fade();
 	}else {
-		console.log("else");
 		display = 1;
 		fade();
 	}
 }
 
-function set2() {
+function set2() { // svg size
 	if(display == 2) {
-		console.log("if");
 		display = 0;
 		fade();
 	}else {
-		console.log("else");
 		display = 2;
 		fade();
 	}
 }
 
-function set3() {
+function set3() { //about
 	if(display == 3) {
-		console.log("if");
 		display = 0;
 		fade();
 	}else {
-		console.log("else");
 		display = 3;
+		fade();
+	}
+}
+
+function set4() { //settings
+	if(display == 4) {
+		display = 0;
+		fade();
+	}else {
+		display = 4;
 		fade();
 	}
 }
@@ -71,14 +82,12 @@ function set3() {
 function fade() {
 	switch(display) {
 		case 0: //wipe everything and restore svg
-			console.log("case 0");
 			wipe();
 			setTimeout(function() { //otherwise weird things happen
 				restore();
 			}, 1050);
 			break;
 		case 1: //wipe everything and display directions
-			console.log("case 1");
 			wipe();
 			setTimeout(function() {
 				direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
@@ -89,24 +98,32 @@ function fade() {
 			}, 550);
 			break;
 		case 2: //wipe everything and display Canvas resizer
-			console.log("case 2");
 			wipe();
 			setTimeout(function() {
-				change.style.transition = "opacity 0.5s linear 0s";//no transition...
+				change.style.transition = "opacity 0.5s linear 0s";
 				change.style.opacity = 1;
-				setTimeout(function( ){
+				setTimeout(function() {
 					change.style.display = "inline";
 				}, 1050);
 			}, 550);
 			break;
 		case 3:
-			console.log("case 3");
 			wipe();
 			setTimeout(function() {
-				about.style.transition = "opacity 0.5s linear 0s";//no transition...
+				about.style.transition = "opacity 0.5s linear 0s";
 				about.style.opacity = 1;
-				setTimeout(function( ){
+				setTimeout(function() {
 					about.style.display = "inline";
+				}, 1050);
+			}, 550);
+			break;
+		case 4:
+			wipe();
+			setTimeout(function() {
+				settings.style.transition = "opacity 0.5s linear 0s";
+				settings.style.opacity = 1;
+				setTimeout(function() {
+					settings.style.display = "inline";
 				}, 1050);
 			}, 550);
 			break;
@@ -124,6 +141,68 @@ function resize() {
 	svg.appendChild(elem);
 }
 
-function saveSession() { //LS
-	alert("save session");
+function saveSession() {
+	sfx1.play();
+	if (window.localStorage) {
+		localStorage.save = "1";
+		var sw = svg.getAttribute("width");//in this scope so it can be updated.
+		var sh = svg.getAttribute("height");
+		localStorage.svg = svg.innerHTML;
+		localStorage.width = sw;
+		localStorage.height = sh;
+		console.log(sw + " " + sh);
+	}else {
+		alert("you don't have access to localstorage capabilities in this browser.");
+	}
+}
+(function () {
+	if(localStorage.audio == "0") {
+		mute();
+	}else {
+		localStorage.audio = "1";
+	}
+	if(localStorage.sfx == "0") {
+		muteSFX();
+	}else {
+		localStorage.sfx = "1";
+	}
+	if (localStorage.save == "1") {
+		svg.innerHTML = localStorage.svg;
+    	svg.setAttribute("width", localStorage.width);
+    	svg.setAttribute("height", localStorage.height);
+	}
+})(); 
+
+function resetSession() {
+	sfx2.play();
+	setTimeout(function() {
+		localStorage.removeItem("svg");
+		localStorage.removeItem("width");
+		localStorage.removeItem("height");
+		localStorage.save = "0";
+		location.reload();
+	}, 750);
+}
+
+function mute() {
+	music.pause();
+	music.currentTime = 0;
+	localStorage.audio = "0";
+}
+
+function start() {
+	music.play();
+	localStorage.audio = "1";
+}
+
+function muteSFX() {
+	sfx1.muted = true;
+	sfx2.muted = true;
+	localStorage.sfx = "0";
+}
+
+function startSFX() {
+	sfx1.muted = false;
+	sfx2.muted = false;
+	localStorage.sfx = "1";
 }
