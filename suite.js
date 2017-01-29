@@ -8,8 +8,6 @@ var music = document.getElementById("audio1");
 var sfx1 = document.getElementById("audio2");
 var sfx2 = document.getElementById("audio3");
 var display = 0;
-//var playing = localStorage.audio;
-//localStorage.audio = "1";
 
 function wipe() { //wipe everything
   	svg.style.transition = "opacity 0.5s linear 0s";
@@ -84,14 +82,12 @@ function set4() { //settings
 function fade() {
 	switch(display) {
 		case 0: //wipe everything and restore svg
-			console.log("case 0");
 			wipe();
 			setTimeout(function() { //otherwise weird things happen
 				restore();
 			}, 1050);
 			break;
 		case 1: //wipe everything and display directions
-			console.log("case 1");
 			wipe();
 			setTimeout(function() {
 				direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
@@ -102,7 +98,6 @@ function fade() {
 			}, 550);
 			break;
 		case 2: //wipe everything and display Canvas resizer
-			console.log("case 2");
 			wipe();
 			setTimeout(function() {
 				change.style.transition = "opacity 0.5s linear 0s";
@@ -113,7 +108,6 @@ function fade() {
 			}, 550);
 			break;
 		case 3:
-			console.log("case 3");
 			wipe();
 			setTimeout(function() {
 				about.style.transition = "opacity 0.5s linear 0s";
@@ -124,7 +118,6 @@ function fade() {
 			}, 550);
 			break;
 		case 4:
-			console.log("case 4");
 			wipe();
 			setTimeout(function() {
 				settings.style.transition = "opacity 0.5s linear 0s";
