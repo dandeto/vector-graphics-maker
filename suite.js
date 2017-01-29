@@ -7,6 +7,7 @@ var settings = document.getElementById("settings");
 var music = document.getElementById("audio1");
 var sfx1 = document.getElementById("audio2");
 var sfx2 = document.getElementById("audio3");
+var sfx3 = document.getElementById("audio4");
 var display = 0;
 
 function wipe() { //wipe everything
@@ -38,6 +39,7 @@ function restore() {
 }
 
 function set() {
+	sfx3.play();
 	if(display == 1) { // Directions
 		display = 0;
 		fade();
@@ -48,6 +50,7 @@ function set() {
 }
 
 function set2() { // svg size
+	sfx3.play();
 	if(display == 2) {
 		display = 0;
 		fade();
@@ -58,6 +61,7 @@ function set2() { // svg size
 }
 
 function set3() { //about
+	sfx3.play();
 	if(display == 3) {
 		display = 0;
 		fade();
@@ -68,6 +72,7 @@ function set3() { //about
 }
 
 function set4() { //settings
+	sfx3.play();
 	if(display == 4) {
 		display = 0;
 		fade();
