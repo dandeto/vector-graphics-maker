@@ -48,51 +48,53 @@
 			<input class="btn" type="button" value="Play Sound Effects" onclick="startSFX()">
 			<input class="btn" type="button" value="Exit" onclick="set4()">
 		</p>
-		<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
-			<script type="text/ecmascript"><![CDATA[
-			    var selectedElement = 0;
-			    var currentX = 0;
-			    var currentY = 0;
-			    var currentMatrix = 0;
+		<div id="svgContainer">
+			<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
+				<script type="text/ecmascript"><![CDATA[
+				    var selectedElement = 0;
+				    var currentX = 0;
+				    var currentY = 0;
+				    var currentMatrix = 0;
 
-			    function selectElement(evt) {
-			      selectedElement = evt.target;
-			      currentX = evt.clientX;
-			      currentY = evt.clientY;
-			      currentMatrix = selectedElement.getAttributeNS(null, "transform").slice(7,-1).split(' ');
-			    
-			      for(var i=0; i<currentMatrix.length; i++) {
-			        currentMatrix[i] = parseFloat(currentMatrix[i]);
-			      }
-			      
-			      selectedElement.setAttributeNS(null, "onmousemove", "moveElement(evt)");
-			      selectedElement.setAttributeNS(null, "onmouseout", "deselectElement(evt)");
-			      selectedElement.setAttributeNS(null, "onmouseup", "deselectElement(evt)");
-			    }
-			        
-			    function moveElement(evt) {
-			      var dx = evt.clientX - currentX;
-			      var dy = evt.clientY - currentY;
-			      currentMatrix[4] += dx;
-			      currentMatrix[5] += dy;
-			      
-			      selectedElement.setAttributeNS(null, "transform", "matrix(" + currentMatrix.join(' ') + ")");
-			      currentX = evt.clientX;
-			      currentY = evt.clientY;
-			    }
-			        
-			    function deselectElement(evt) {
-			      if(selectedElement != 0){
-			          selectedElement.removeAttributeNS(null, "onmousemove");
-			          selectedElement.removeAttributeNS(null, "onmouseout");
-			          selectedElement.removeAttributeNS(null, "onmouseup");
-			          selectedElement = 0;
-			          }
-			        }
-			        
-			    ]]>
-	    	</script>
-		</svg>
+				    function selectElement(evt) {
+				      selectedElement = evt.target;
+				      currentX = evt.clientX;
+				      currentY = evt.clientY;
+				      currentMatrix = selectedElement.getAttributeNS(null, "transform").slice(7,-1).split(' ');
+
+				      for(var i=0; i<currentMatrix.length; i++) {
+				        currentMatrix[i] = parseFloat(currentMatrix[i]);
+				      }
+
+				      selectedElement.setAttributeNS(null, "onmousemove", "moveElement(evt)");
+				      selectedElement.setAttributeNS(null, "onmouseout", "deselectElement(evt)");
+				      selectedElement.setAttributeNS(null, "onmouseup", "deselectElement(evt)");
+				    }
+
+				    function moveElement(evt) {
+				      var dx = evt.clientX - currentX;
+				      var dy = evt.clientY - currentY;
+				      currentMatrix[4] += dx;
+				      currentMatrix[5] += dy;
+
+				      selectedElement.setAttributeNS(null, "transform", "matrix(" + currentMatrix.join(' ') + ")");
+				      currentX = evt.clientX;
+				      currentY = evt.clientY;
+				    }
+
+				    function deselectElement(evt) {
+				      if(selectedElement != 0){
+				          selectedElement.removeAttributeNS(null, "onmousemove");
+				          selectedElement.removeAttributeNS(null, "onmouseout");
+				          selectedElement.removeAttributeNS(null, "onmouseup");
+				          selectedElement = 0;
+				          }
+				        }
+
+				    ]]>
+		    	</script>
+			</svg>
+		</div>
 		<div class="user">
 			<select>
 				<option>Shapes</option>
@@ -122,7 +124,8 @@
 			</div>
 			<input class="btn" type="button" value="toggle grid" onclick="toggleBG()"/>
 			<input class="btn" type="button" value="submit" onclick="create()">
-			<input class="btn" type="button" value="save" onclick="save()">
+			<!--<input class="btn" type="button" value="save" onclick="save()">-->
+			<a href="" id="link" download="svg.svg">Download</a>
 		</div>
 		<audio id="audio1" loop="true" autoplay="true">
 			<source src="suite.mp3" type="audio/mpeg">
