@@ -408,7 +408,6 @@ function edit3(poly) {
 	var point3 = cont.childNodes[2].value;
 	var point4 = cont.childNodes[3].value;
 
-//polygon
 	if(pts == 2) {
 		points.value = point1+","+point2+" "+point3+","+point4;
 	}
@@ -536,7 +535,7 @@ function edit(rect,cir,ellip) {
 
 function toggleBG() {
 	var field = document.getElementById("svg");
-	if(bg==false) {
+	if(bg == false) {
 		field.style.background = "url('square.png')";
 		bg = true;
 	}
