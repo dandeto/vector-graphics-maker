@@ -1,23 +1,10 @@
-var bg = false;
-var cr = false;
-var rc = false;
-var el = false;
-var ln = false;
-var pol = false;
-var tx = false;
+var shape;
 var cont = document.getElementById("container");
 var inputs = document.querySelectorAll(".hide");//determines which input fields to display
 var pts;
 
 function Ccircle() {
-	//tells which shape is selected
-	cr = true;
-	rc = false;
-	el = false;
-	ln = false;
-	pol = false;
-	tx = false;
-
+	shape = 1; //tells which shape is selected
 	removeCont();
 
 	for (var i = 0; i < 5; ++i) {//cycle through nodes 0-4 with class of inputs
@@ -29,20 +16,13 @@ function Ccircle() {
 	inputs[9].style.display = "none";
 	inputs[10].style.display = "none";
 
-	//update directions
-	inputs[1].placeholder= "x value";
+	inputs[1].placeholder= "x value";//update directions
 	inputs[2].placeholder= "y value";
 	inputs[7].placeholder= "radius length";
 }
 
 function Crectangle() {
-	cr = false;
-	rc = true;
-	el = false;
-	ln = false;
-	pol = false;
-	tx = false;
-
+	shape = 2;
 	removeCont();
 
 	for(var i = 0; i < 9; ++i) {
@@ -58,13 +38,7 @@ function Crectangle() {
 }
 
 function Cellipse() {
-	cr = false;
-	rc = false;
-	el = true;
-	ln = false;
-	pol = false;
-	tx = false;
-
+	shape = 3;
 	removeCont();
 
 	for (var i = 0; i < 5; ++i) {
@@ -83,17 +57,11 @@ function Cellipse() {
 }
 
 function Cline() {
-	cr = false;
-	rc = false;
-	el = false;
-	ln = true;
-	pol = false;
-	tx = false;
-
+	shape = 4;
 	removeCont();
 
 	inputs[0].style.display = "none";
-	for (var i = 1; i < 5; ++i) {//start at node 1
+	for (var i = 1; i < 5; ++i) { //start at node 1
 		inputs[i].style.display = "inline";
 	}
 	inputs[5].style.display = "none";
@@ -110,13 +78,7 @@ function Cline() {
 }
 
 function Cpolygon() {
-	cr = false;
-	rc = false;
-	el = false;
-	ln = false;
-	pol = true;
-	tx = false;
-
+	shape = 5;
 	removeCont();
 
 	inputs[0].style.display = "inline";
@@ -132,13 +94,7 @@ function Cpolygon() {
 }
 
 function Ctext() {
-	cr = false;
-	rc = false;
-	el = false;
-	ln = false;
-	pol = false;
-	tx = true;
-
+	shape = 6;
 	removeCont();
 
 	for (var i = 0; i < 5; ++i) {//cycle through nodes 0-4 with class of inputs
@@ -162,8 +118,7 @@ function removeCont() {
 }
 
 function setPoints() {
-	//gets #of points from user
-	pts = prompt("how many points do you want to have on this polygon?");
+	pts = prompt("how many points do you want to have on this polygon?");//gets #of points from user
 
 	if(pts < 1) {
 		alert("Enter a # greater than one.");
@@ -197,8 +152,8 @@ function setPoints() {
 	}
 }
 
-function create() {//vars set to txt values (here so that it doesn't get them onload). allows updates.
-	var color = document.getElementById("txt1").value;//var dec for inputs
+function create() { //vars set to txt values (here so that it doesn't get them onload). allows updates.
+	var color = document.getElementById("txt1").value; //var dec for inputs
 	var fontsz = document.getElementById("txt2").value;
 	var rad = document.getElementById("txt2").value;
 	var xr = document.getElementById("txt2").value;
@@ -215,22 +170,22 @@ function create() {//vars set to txt values (here so that it doesn't get them on
 
 	var points = document.createAttribute("points");
 
-	if(cr == true) {
+	if(shape == 1) {
 		circle();
 	}
-	if(rc == true) {
+	if(shape == 2) {
 		rectangle();
 	}
-	if(el == true) {
+	if(shape == 3) {
 		ellipse();
 	}
-	if(ln == true) {
+	if(shape == 4) {
 		line();
 	}
-	if(pol == true) {
+	if(shape == 5) {
 		polygon();
 	}
-	if(tx == true) {
+	if(shape == 6) {
 		text();
 	}
 
