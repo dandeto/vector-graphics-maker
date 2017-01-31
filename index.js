@@ -1,3 +1,4 @@
+var bg = false;
 var shape;
 var cont = document.getElementById("container");
 var inputs = document.querySelectorAll(".hide");//determines which input fields to display

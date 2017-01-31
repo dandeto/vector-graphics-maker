@@ -1,6 +1,6 @@
 //global vars
 var svg = document.getElementById("svg");
-var direct = document.querySelectorAll(".directions");
+var direct = document.getElementById("directions");
 var change = document.getElementById("change");
 var about = document.getElementById("about");
 var settings = document.getElementById("settings");
@@ -19,14 +19,14 @@ function wipe() { //wipe everything
 	about.style.opacity = 0;
 	settings.style.transition = "opacity 0.5s linear 0s";//no transition...
 	settings.style.opacity = 0;
-	direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
-	direct[0].style.opacity = 0;
+	direct.style.transition = "opacity 0.5s linear 0s";//no transition...
+	direct.style.opacity = 0;
 	setTimeout(function() {
   		svg.style.display = "none";
 		change.style.display = "none";
 		about.style.display = "none";
 		settings.style.display = "none";
-		direct[0].style.display = "none";
+		direct.style.display = "none";
 	}, 500);
 }
 
@@ -93,10 +93,10 @@ function fade() {
 		case 1: //wipe everything and display directions
 			wipe();
 			setTimeout(function() {
-				direct[0].style.display = "inline";
+				direct.style.display = "inline";
 				setTimeout(function() {
-					direct[0].style.transition = "opacity 0.5s linear 0s";//no transition...
-					direct[0].style.opacity = 1;
+					direct.style.transition = "opacity 0.5s linear 0s";//no transition...
+					direct.style.opacity = 1;
 				}, 1050);
 			}, 550);
 			break;
