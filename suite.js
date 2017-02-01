@@ -1,9 +1,12 @@
 //global vars
+var script = document.getElementById("script");
+var svgContainer = document.getElementById("svgContainer");
 var svg = document.getElementById("svg");
 var direct = document.getElementById("directions");
 var change = document.getElementById("change");
 var about = document.getElementById("about");
 var settings = document.getElementById("settings");
+var html = document.getElementById("html");
 var music = document.getElementById("audio1");
 var sfx1 = document.getElementById("audio2");
 var sfx2 = document.getElementById("audio3");
@@ -13,29 +16,41 @@ var display = 0;
 function wipe() { //wipe everything
   	svg.style.transition = "opacity 0.5s linear 0s";
 	svg.style.opacity = 0;
-	change.style.transition = "opacity 0.5s linear 0s";//no transition...
+	change.style.transition = "opacity 0.5s linear 0s";
 	change.style.opacity = 0;
-	about.style.transition = "opacity 0.5s linear 0s";//no transition...
+	about.style.transition = "opacity 0.5s linear 0s";
 	about.style.opacity = 0;
-	settings.style.transition = "opacity 0.5s linear 0s";//no transition...
+	settings.style.transition = "opacity 0.5s linear 0s";
 	settings.style.opacity = 0;
-	direct.style.transition = "opacity 0.5s linear 0s";//no transition...
+	direct.style.transition = "opacity 0.5s linear 0s";
 	direct.style.opacity = 0;
+	html.style.transition = "opacity 0.5s linear 0s";
+	html.style.opacity = 0;
 	setTimeout(function() {
   		svg.style.display = "none";
 		change.style.display = "none";
 		about.style.display = "none";
 		settings.style.display = "none";
 		direct.style.display = "none";
+		html.style.display = "none";
 	}, 500);
 }
 
 function restore() {
 	svg.style.display = "inline";
 	setTimeout(function(){
-  		svg.style.transition = "opacity 0.5s linear 0s";//no transition...
-	svg.style.opacity = 1;
+  		svg.style.transition = "opacity 0.5s linear 0s";
+		svg.style.opacity = 1;
 	}, 500);
+}
+
+function eraseScript() {
+	//svg.removeChild(script);//breaks everything
+	script.innerHTML = "";
+}
+
+function resetScript() {
+	//alert("wow there.");
 }
 
 function set() {
@@ -78,6 +93,17 @@ function set4() { //settings
 		fade();
 	}else {
 		display = 4;
+		fade();
+	}
+}
+
+function set5() { //html code
+	sfx3.play();
+	if(display == 5) {
+		display = 0;
+		fade();
+	}else {
+		display = 5;
 		fade();
 	}
 }
@@ -130,6 +156,19 @@ function fade() {
 				}, 1050);
 			}, 550);
 			break;
+		case 5:
+			wipe();
+			setTimeout(function() {
+				html.style.display = "inline";
+				eraseScript();//remove script before stuff happens
+				html.textContent = svgContainer.innerHTML; //must be text content, b/c innerHTML will acctually run code.
+				setTimeout(function() {
+					html.style.transition = "opacity 0.5s linear 0s";
+					html.style.opacity = 1;
+				}, 1050);
+			}, 550);
+			resetScript();
+			break;
 	}
 }
 
@@ -158,6 +197,7 @@ function saveSession() {
 		alert("you don't have access to localstorage capabilities in this browser.");
 	}
 }
+
 (function () {
 	if(localStorage.audio == "0") {
 		mute();

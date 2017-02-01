@@ -1,9 +1,9 @@
 var bg = false;
 var shape;
+var edit;
 var cont = document.getElementById("container");
 var inputs = document.querySelectorAll(".hide");//determines which input fields to display
 var pts;
-
 function Ccircle() {
 	shape = 1; //tells which shape is selected
 	removeCont();
@@ -152,6 +152,11 @@ function setPoints() {
     	}
 	}
 }
+
+/*function test() {
+	var txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+	if(txt == "[object SVGTextElement]") {alert("it works!"); edit4();}
+}*/
 
 function create() { //vars set to txt values (here so that it doesn't get them onload). allows updates.
 	var color = document.getElementById("txt1").value; //var dec for inputs
@@ -317,6 +322,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 }
 
 function edit4(txt) {
+	//alert(txt);
 	color = document.getElementById("txt1").value;
 	fontsz = document.getElementById("txt2").value;
 	xPos = document.getElementById("txt3").value;
@@ -391,7 +397,6 @@ function edit3(poly) {
 		var point10 = cont.childNodes[9].value;
 		points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6+" "+point7+","+point8+" "+point9+","+point10;
 	}
-
 
 	stroke.value = s;
 	strokeWidth.value = sw;

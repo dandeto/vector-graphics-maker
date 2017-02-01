@@ -62,6 +62,7 @@ body {
 	padding: 5%;
 	background-color: #70707A;
 	font-size: 130%;
+	max-width: 700;
 }
 
 .resize{

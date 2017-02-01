@@ -27,7 +27,8 @@
 		  	<input class="btn" type="button" value="exit" onclick="set()">
 		</p>
 
-		<p id="change" class="mario" title="Default Size: 1000 X 650 px"> Resize SVG in Pixles:<br>
+		<p id="change" class="mario" title="Default Size: 1000 X 650 px">
+			Resize SVG in Pixles:<br>
 		  	<input class="in resize" type="text" placeholder="width"/>
 		  	<input class="in resize" type="text" placeholder="height"/>
 		  	<br>
@@ -41,16 +42,21 @@
 		  	<input class="btn" type="button" value="Exit" onclick="set3()">
 		</p>
 
-		<p id="settings" class="directions mario">Settings:<br>
+		<p id="settings" class="directions mario">
+			Settings:<br>
 			<input class="btn" type="button" value="Mute Audio" onclick="mute()">
 			<input class="btn" type="button" value="Play Audio" onclick="start()"><br>
 			<input class="btn" type="button" value="Mute Sound Effects" onclick="muteSFX()">
 			<input class="btn" type="button" value="Play Sound Effects" onclick="startSFX()">
 			<input class="btn" type="button" value="Exit" onclick="set4()">
 		</p>
-		<div id="svgContainer">
+
+		<p id="html" class="directions mario">
+			Code:<br>
+		</p>
+		<div id="svgContainer" class="svgContainer">
 			<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
-				<script type="text/ecmascript"><![CDATA[
+				<script id="script" type="text/ecmascript"><![CDATA[
 				    var selectedElement = 0;
 				    var currentX = 0;
 				    var currentY = 0;
@@ -122,8 +128,10 @@
 				<div id="container">
 				</div>
 			</div>
-			<input class="btn" type="button" value="toggle grid" onclick="toggleBG()"/>
-			<input class="btn" type="button" value="submit" onclick="create()">
+			<input class="btn" type="button" value="Toggle Grid" onclick="toggleBG()"/>
+			<input class="btn" type="button" value="Submit" onclick="create()">
+			<input class="btn" type="button" value="View HTML" onclick="set5()">
+			<!--<input class="btn" type="button" value="test" onclick="test()">-->
 			<a href="" class="btn" id="link" download="svg.svg">Download</a>
 		</div>
 		<audio id="audio1" loop="true" autoplay="true">
