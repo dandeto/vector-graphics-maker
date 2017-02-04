@@ -112,7 +112,7 @@ function fade() {
 	switch(display) {
 		case 0: //wipe everything and restore svg
 			wipe();
-			setTimeout(function() { //otherwise weird things happen
+			setTimeout(function() {
 				restore();
 			}, 550);
 			break;

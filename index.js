@@ -206,7 +206,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		txt.setAttribute("stroke", s);
 		txt.setAttribute("stroke-width", sw);
 		txt.setAttribute("onclick", "edit4(this)");
-		txt.setAttribute("style", "font-size:" + fontsz);
+		txt.setAttribute("font-size", fontsz);
 		txt.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		txt.setAttribute("onmousedown", "selectElement(evt)");
 	}
@@ -336,14 +336,14 @@ function edit4(txt) {
 	strokeWidth = document.createAttribute("stroke-width");
 	xposition = document.createAttribute("x");
 	yposition = document.createAttribute("y");
-	style = document.createAttribute("style");
+	style = document.createAttribute("font-size");
 
 	fill.value = color;
 	xposition.value = xPos;
 	yposition.value = yPos;
 	stroke.value = s;
 	strokeWidth.value = sw;
-	style.value = "font-size:" + fontsz;
+	style.value = fontsz;
 
 	txt.innerHTML = t;
 	txt.setAttributeNode(fill);
