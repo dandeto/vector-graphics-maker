@@ -53,6 +53,7 @@
 
 		<p id="html" class="directions mario">
 			Code:<br>
+			<input class="btn" type="button" value="Exit" onclick="set5()">
 		</p>
 		<div id="svgContainer" class="svgContainer">
 			<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width = "1000" height="650">
@@ -131,25 +132,24 @@
 			<input class="btn" type="button" value="Toggle Grid" onclick="toggleBG()"/>
 			<input class="btn" type="button" value="Submit" onclick="create()">
 			<input class="btn" type="button" value="View HTML" onclick="set5()">
-			<!--<input class="btn" type="button" value="test" onclick="test()">-->
 			<a href="" class="btn" id="link" download="svg.svg">Download</a>
 		</div>
 		<audio id="audio1" loop="true" autoplay="true">
-			<source src="suite.mp3" type="audio/mpeg">
+			<source src="audio/suite.mp3" type="audio/mpeg">
 		</audio>
 		<audio id="audio2">
-			<source src="save.mp3" type="audio/mpeg">
+			<source src="audio/save.mp3" type="audio/mpeg">
 		</audio>
 		<audio id="audio3">
-			<source src="reset.mp3" type="audio/mpeg">
+			<source src="audio/reset.mp3" type="audio/mpeg">
 		</audio>
 		<audio id="audio4">
-			<source src="click.mp3" type="audio/mpeg">
+			<source src="audio/click.mp3" type="audio/mpeg">
 		</audio>
-		<link rel="stylesheet" type="text/css" href="index.css">
-		<link rel="stylesheet" type="text/css" href="suite.css">
-		<script type="text/javascript" src="index.js"></script><!--load content before download script-->
-		<script type="text/javascript" src="suite.js"></script>
-		<script type="text/javascript" src="download.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/suite.css">
+		<script type="text/javascript" src="js/index.js"></script><!--load content before download script-->
+		<script type="text/javascript" src="js/suite.js"></script>
+		<script type="text/javascript" src="js/download.js"></script>
 	</body>
 </html>
