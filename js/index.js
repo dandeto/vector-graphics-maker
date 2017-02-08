@@ -497,7 +497,7 @@ function edit(rect,cir,ellip) {
 function toggleBG() {
 	var field = document.getElementById("svg");
 	if(bg == false) {
-		field.style.background = "url('square.png')";
+		field.style.background = "url('img/square.svg')";
 		bg = true;
 	}
 	else {

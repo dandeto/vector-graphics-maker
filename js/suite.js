@@ -157,7 +157,9 @@ function fade() {
 			setTimeout(function() {
 				html.style.display = "inline";
 				eraseScript();//remove script before stuff happens
-				html.textContent = svgContainer.innerHTML; //must be text content, b/c innerHTML will acctually run code.
+				var width= svg.getAttribute("width");
+				var height= svg.getAttribute("height");
+				html.textContent = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="' + width +  '" height="' + height + '">' + svg.innerHTML + "</svg>"; //must be text content, b/c innerHTML will acctually run code.
 				setTimeout(function() {
 					html.style.transition = "opacity 0.5s linear 0s";
 					html.style.opacity = 1;
