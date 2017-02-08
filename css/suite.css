@@ -30,7 +30,7 @@ body {
 
 @font-face {
     font-family: gota;
-    src: url(Gota.otf);
+    src: url(../font/Gota.otf);
 }
 
 .gota {
@@ -39,7 +39,7 @@ body {
 
 @font-face {
     font-family: mario;
-    src: url(Mario.ttf);
+    src: url(../font/Mario.ttf);
 }
 
 .mario {
@@ -48,7 +48,7 @@ body {
 
 @font-face {
     font-family: vanilla;
-    src: url(VanillaExtractRegular.ttf);
+    src: url(../font/VanillaExtractRegular.ttf);
 }
 
 .vanilla {
