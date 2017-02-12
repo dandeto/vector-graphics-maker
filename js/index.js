@@ -4,6 +4,16 @@ var edit;
 var cont = document.getElementById("container");
 var inputs = document.querySelectorAll(".hide");//determines which input fields to display
 var pts;
+
+document.getElementById("shapes").onchange = function(find) {
+    if (this.value == "circle") {Ccircle();}
+    if (this.value == "rectangle") {Crectangle();}
+    if (this.value == "ellipse") {Cellipse();}
+    if (this.value == "line") {Cline();}
+    if (this.value == "polygon") {Cpolygon();}
+    if (this.value == "text") {Ctext();}
+};
+
 function Ccircle() {
 	shape = 1; //tells which shape is selected
 	removeCont();
@@ -152,11 +162,6 @@ function setPoints() {
     	}
 	}
 }
-
-/*function test() {
-	var txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
-	if(txt == "[object SVGTextElement]") {alert("it works!"); edit4();}
-}*/
 
 function create() { //vars set to txt values (here so that it doesn't get them onload). allows updates.
 	var color = document.getElementById("txt1").value; //var dec for inputs
