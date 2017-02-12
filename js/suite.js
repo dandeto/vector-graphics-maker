@@ -238,11 +238,13 @@ function start() {
 function muteSFX() {
 	sfx1.muted = true;
 	sfx2.muted = true;
+	sfx3.muted = true;
 	localStorage.sfx = "0";
 }
 
 function startSFX() {
 	sfx1.muted = false;
 	sfx2.muted = false;
+	sfx3.muted = false;
 	localStorage.sfx = "1";
 }
