@@ -21,6 +21,7 @@ function Ccircle() {
 	for (var i = 0; i < 5; ++i) {//cycle through nodes 0-4 with class of inputs
 		inputs[i].style.display = "inline";
 	}
+	inputs[5].style.display = "none";
 	inputs[6].style.display = "none";
 	inputs[7].style.display = "inline";
 	inputs[8].style.display = "none";
@@ -55,6 +56,7 @@ function Cellipse() {
 	for (var i = 0; i < 5; ++i) {
 		inputs[i].style.display = "inline";
 	}
+	inputs[5].style.display = "none";
 	inputs[6].style.display = "none";
 	inputs[7].style.display = "inline";
 	inputs[8].style.display = "inline";
@@ -100,6 +102,7 @@ function Cpolygon() {
 	for (var i = 5; i < 8; ++i) {
 		inputs[i].style.display = "none";
 	}
+	inputs[8].style.display = "none";
 	inputs[9].style.display = "inline";
 	inputs[10].style.display = "none";
 }
@@ -111,6 +114,7 @@ function Ctext() {
 	for (var i = 0; i < 5; ++i) {//cycle through nodes 0-4 with class of inputs
 		inputs[i].style.display = "inline";
 	}
+	inputs[5].style.display = "none";
 	inputs[6].style.display = "none";
 	inputs[7].style.display = "inline";
 	inputs[8].style.display = "none";
