@@ -8,9 +8,7 @@ var about = document.getElementById("about");
 var settings = document.getElementById("settings");
 var html = document.getElementById("html");
 var music = document.getElementById("audio1");
-var sfx1 = document.getElementById("audio2");
-var sfx2 = document.getElementById("audio3");
-var sfx3 = document.getElementById("audio4");
+var sfx = document.querySelectorAll(".sfx");
 var display = 0;
 
 function wipe() { //wipe everything
@@ -50,7 +48,7 @@ function eraseScript() {
 }
 
 function set() {
-	sfx3.play();
+	sfx[2].play();
 	if(display == 1) { // Directions
 		display = 0;
 		fade();
@@ -61,7 +59,7 @@ function set() {
 }
 
 function set2() { // svg size
-	sfx3.play();
+	sfx[2].play();
 	if(display == 2) {
 		display = 0;
 		fade();
@@ -72,7 +70,7 @@ function set2() { // svg size
 }
 
 function set3() { //about
-	sfx3.play();
+	sfx[2].play();
 	if(display == 3) {
 		display = 0;
 		fade();
@@ -83,7 +81,7 @@ function set3() { //about
 }
 
 function set4() { //settings
-	sfx3.play();
+	sfx[2].play();
 	if(display == 4) {
 		display = 0;
 		fade();
@@ -94,7 +92,7 @@ function set4() { //settings
 }
 
 function set5() { //html code
-	sfx3.play();
+	sfx[2].play();
 	if(display == 5) {
 		display = 0;
 		fade();
@@ -170,6 +168,7 @@ function fade() {
 }
 
 function resize() {
+	sfx[4].play();
 	var width = 1000;
 	var height = 650;
 	var elem = document.querySelectorAll(".resize");
@@ -181,6 +180,7 @@ function resize() {
 }
 
 function toggleBG() {
+	sfx[3].play();
 	var field = document.getElementById("svg");
 	if(bg == false) {
 		field.style.background = "url('img/square.svg')";
@@ -193,7 +193,7 @@ function toggleBG() {
 }
 
 function saveSession() {
-	sfx1.play();
+	sfx[0].play();
 	if (window.localStorage) {
 		localStorage.save = "1";
 		var sw = svg.getAttribute("width");//in this scope so it can be updated.
@@ -226,7 +226,7 @@ function saveSession() {
 })(); 
 
 function resetSession() {
-	sfx2.play();
+	sfx[1].play();
 	setTimeout(function() {
 		localStorage.removeItem("svg");
 		localStorage.removeItem("width");
@@ -234,6 +234,10 @@ function resetSession() {
 		localStorage.save = "0";
 		location.reload();
 	}, 750);
+}
+
+function playclicksound() {
+	sfx[6].play();
 }
 
 function mute() {
@@ -248,15 +252,16 @@ function start() {
 }
 
 function muteSFX() {
-	sfx1.muted = true;
-	sfx2.muted = true;
-	sfx3.muted = true;
+	for (var i = 0; i < sfx.length; i++) {
+		sfx[i].muted = true;
+	}
 	localStorage.sfx = "0";
 }
 
 function startSFX() {
-	sfx1.muted = false;
-	sfx2.muted = false;
-	sfx3.muted = false;
+	sfx[2].play();
+	for (var i = 0; i < sfx.length; i++) {
+		sfx[i].muted = false;
+	}
 	localStorage.sfx = "1";
 }

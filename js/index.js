@@ -6,6 +6,7 @@ var inputs = document.querySelectorAll(".hide");//determines which input fields 
 var pts;
 
 document.getElementById("shapes").onchange = function(find) {
+	sfx[5].play();
     if (this.value == "circle") {Ccircle();}
     if (this.value == "rectangle") {Crectangle();}
     if (this.value == "ellipse") {Cellipse();}
@@ -203,7 +204,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 	if(shape == 6) {
 		text();
 	}
-
+	sfx[4].play();
 	function text() {
 		var txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
 		document.getElementById("svg").appendChild(txt);
@@ -331,6 +332,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 }
 
 function edit4(txt) {
+	sfx[7].play();
 	//alert(txt);
 	color = document.getElementById("txt1").value;
 	fontsz = document.getElementById("txt2").value;
@@ -364,6 +366,7 @@ function edit4(txt) {
 }
 
 function edit3(poly) {
+	sfx[7].play();
 	var fill = document.createAttribute("fill");
 	var stroke = document.createAttribute("stroke");
 	var strokeWidth = document.createAttribute("stroke-width");
@@ -418,6 +421,7 @@ function edit3(poly) {
 }
 
 function edit2(lin) {
+	sfx[7].play();
 	var fill = document.createAttribute("fill");
 	var stroke = document.createAttribute("stroke");
 	var strokeWidth = document.createAttribute("stroke-width");
@@ -452,6 +456,7 @@ function edit2(lin) {
 }
 
 function edit(rect,cir,ellip) {
+	sfx[7].play();
 	color = document.getElementById("txt1").value;
 	xr = document.getElementById("txt2").value;
 	rad = document.getElementById("txt2").value;

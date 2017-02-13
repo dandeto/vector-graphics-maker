@@ -113,7 +113,7 @@
 				<option>polygon</option>
 			</select>
 			<br>
-			<div class="inputs">
+			<div class="inputs" onclick="playclicksound();">
 				<input class="hide in" id="txt1" type="text" placeholder="color"/><!--[0]-->
 				<input class="hide in" id="txt3" type="text" placeholder="x value"/><!--[1]-->
 				<input class="hide in" id="txt4" type="text" placeholder="y value"/><!--[2]-->
@@ -129,21 +129,36 @@
 				</div>
 			</div>
 			<input class="btn" type="button" value="Toggle Grid" onclick="toggleBG()"/>
-			<input class="btn" type="button" value="Submit" onclick="create()">
-			<input class="btn" type="button" value="View HTML" onclick="set5()">
+			<input class="btn" type="button" value="Submit" onclick="create()"/>
+			<input class="btn" type="button" value="View HTML" onclick="set5()"/>
 			<a href="" class="btn" id="link" download="svg.svg">Download</a>
 		</div>
-		<audio id="audio1" loop="true" autoplay="true">
+		<audio class="audio" id="audio1" loop="true" autoplay="true">
 			<source src="audio/suite.mp3" type="audio/mpeg">
 		</audio>
-		<audio id="audio2">
+		<audio class="sfx" id="audio2">
 			<source src="audio/save.mp3" type="audio/mpeg">
 		</audio>
-		<audio id="audio3">
+		<audio class="sfx" id="audio3">
 			<source src="audio/reset.mp3" type="audio/mpeg">
 		</audio>
-		<audio id="audio4">
+		<audio class="sfx" id="audio4">
 			<source src="audio/click.mp3" type="audio/mpeg">
+		</audio>
+		<audio class="sfx" id="audio5">
+			<source src="audio/click2.mp3" type="audio/mpeg">
+		</audio>
+		<audio class="sfx" id="audio6">
+			<source src="audio/click3.mp3" type="audio/mpeg">
+		</audio>
+		<audio class="sfx" id="audio7">
+			<source src="audio/select.mp3" type="audio/mpeg">
+		</audio>
+		<audio class="sfx" id="audio8">
+			<source src="audio/select2.mp3" type="audio/mpeg">
+		</audio>
+		<audio class="sfx" id="audio9">
+			<source src="audio/edit.mp3" type="audio/mpeg">
 		</audio>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<link rel="stylesheet" type="text/css" href="css/suite.css">
