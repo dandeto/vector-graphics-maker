@@ -331,52 +331,43 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 	}
 }
 
-function edit4(txt) {
-	sfx[7].play();
-	//alert(txt);
-	color = document.getElementById("txt1").value;
+function update() {
+	color = document.getElementById("txt1").value; //var dec for inputs
 	fontsz = document.getElementById("txt2").value;
+	rad = document.getElementById("txt2").value;
+	xr = document.getElementById("txt2").value;
+	xEnd = document.getElementById("txt2").value;
 	xPos = document.getElementById("txt3").value;
 	yPos = document.getElementById("txt4").value;
 	s = document.getElementById("txt5").value;
 	sw = document.getElementById("txt6").value;
+	w = document.getElementById("txt7").value;
+	h = document.getElementById("txt8").value;
+	yr = document.getElementById("txt9").value;
+	yEnd = document.getElementById("txt9").value;
 	t = document.getElementById("txt10").value;
+}
 
-	fill = document.createAttribute("fill");
-	stroke = document.createAttribute("stroke");
-	strokeWidth = document.createAttribute("stroke-width");
-	xposition = document.createAttribute("x");
-	yposition = document.createAttribute("y");
-	style = document.createAttribute("font-size");
-
-	fill.value = color;
-	xposition.value = xPos;
-	yposition.value = yPos;
-	stroke.value = s;
-	strokeWidth.value = sw;
-	style.value = fontsz;
-
+function edit4(txt) {
+	sfx[7].play();
+	update();
 	txt.innerHTML = t;
-	txt.setAttributeNode(fill);
-	txt.setAttributeNode(xposition);
-	txt.setAttributeNode(yposition);
-	txt.setAttributeNode(stroke);
-	txt.setAttributeNode(strokeWidth);
-	txt.setAttributeNode(style);
+	txt.setAttribute("fill", color);
+	txt.setAttribute("x", xPos);
+	txt.setAttribute("y", yPos);
+	txt.setAttribute("stroke", s);
+	txt.setAttribute("stroke-width", sw);
+	txt.setAttribute("font-size", fontsz);
 }
 
 function edit3(poly) {
 	sfx[7].play();
+	update();
 	var fill = document.createAttribute("fill");
 	var stroke = document.createAttribute("stroke");
 	var strokeWidth = document.createAttribute("stroke-width");
 	var points = document.createAttribute("points");
 
-	var s = document.getElementById("txt5").value;
-	var sw = document.getElementById("txt6").value;
-	var color = document.getElementById("txt1").value;
-
-	//polygon
 	var point1 = cont.childNodes[0].value;
 	var point2 = cont.childNodes[1].value;
 	var point3 = cont.childNodes[2].value;
@@ -409,101 +400,36 @@ function edit3(poly) {
 		var point10 = cont.childNodes[9].value;
 		points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6+" "+point7+","+point8+" "+point9+","+point10;
 	}
-
-	stroke.value = s;
-	strokeWidth.value = sw;
-	fill.value = color;
-
-	poly.setAttributeNode(stroke);
-	poly.setAttributeNode(strokeWidth);
+	poly.setAttribute("stroke", s);
+	poly.setAttribute("stroke-width", sw);
+	poly.setAttribute("fill", color);
 	poly.setAttributeNode(points);
-	poly.setAttributeNode(fill);
 }
 
 function edit2(lin) {
 	sfx[7].play();
-	var fill = document.createAttribute("fill");
-	var stroke = document.createAttribute("stroke");
-	var strokeWidth = document.createAttribute("stroke-width");
-	var xposition = document.createAttribute("x1");
-	var yposition = document.createAttribute("y1");
-	var exposition = document.createAttribute("x2");
-	var eyposition = document.createAttribute("y2");
-
-	var xEnd = document.getElementById("txt2").value;
-	var xPos = document.getElementById("txt3").value;
-	var yPos = document.getElementById("txt4").value;
-	var s = document.getElementById("txt5").value;
-	var sw = document.getElementById("txt6").value;
-	var yEnd = document.getElementById("txt9").value;
-	var color = document.getElementById("txt1").value;
-
-	xposition.value = xPos;
-	yposition.value = yPos;
-	exposition.value = xEnd;
-	eyposition.value = yEnd;
-	stroke.value = s;
-	strokeWidth.value = sw;
-	fill.value = color;
-
-	lin.setAttributeNode(xposition);
-	lin.setAttributeNode(yposition);
-	lin.setAttributeNode(exposition);
-	lin.setAttributeNode(eyposition);
-	lin.setAttributeNode(stroke);
-	lin.setAttributeNode(strokeWidth);
-	lin.setAttributeNode(fill);
+	update();
+	lin.setAttribute("x1", xPos);
+	lin.setAttribute("y1", yPos);
+	lin.setAttribute("x2", xEnd);
+	lin.setAttribute("y2", yEnd);
+	lin.setAttribute("stroke", s);
+	lin.setAttribute("stroke-width", sw);
 }
 
-function edit(rect,cir,ellip) {
+function edit(rect) {
 	sfx[7].play();
-	color = document.getElementById("txt1").value;
-	xr = document.getElementById("txt2").value;
-	rad = document.getElementById("txt2").value;
-	xPos = document.getElementById("txt3").value;
-	yPos = document.getElementById("txt4").value;
-	s = document.getElementById("txt5").value;
-	sw = document.getElementById("txt6").value;
-	w = document.getElementById("txt7").value;
-	h = document.getElementById("txt8").value;
-	yr = document.getElementById("txt9").value;
-
-	fill = document.createAttribute("fill");
-	stroke = document.createAttribute("stroke");
-	strokeWidth = document.createAttribute("stroke-width");
-	width = document.createAttribute("width");
-	height = document.createAttribute("height");
-	xradius = document.createAttribute("rx");
-	yradius = document.createAttribute("ry");
-	xposition = document.createAttribute("x");
-	yposition = document.createAttribute("y");
-	radius = document.createAttribute("r");
-	cxposition = document.createAttribute("cx");
-	cyposition = document.createAttribute("cy");
-
-	width.value = w;
-	height.value = h;
-	fill.value = color;
-	xradius.value = xr;
-	yradius.value = yr;
-	xposition.value = xPos;
-	yposition.value = yPos;
-	cxposition.value = xPos;
-	cyposition.value = yPos;
-	stroke.value = s;
-	strokeWidth.value = sw;
-	radius.value = rad;
-
-	rect.setAttributeNode(radius);
-	rect.setAttributeNode(width);
-	rect.setAttributeNode(height);
-	rect.setAttributeNode(xradius);
-	rect.setAttributeNode(yradius);
-	rect.setAttributeNode(fill);
-	rect.setAttributeNode(xposition);
-	rect.setAttributeNode(yposition);
-	rect.setAttributeNode(cxposition);
-	rect.setAttributeNode(cyposition);
-	rect.setAttributeNode(stroke);
-	rect.setAttributeNode(strokeWidth);
+	update();
+	rect.setAttribute("fill", color);
+	rect.setAttribute("r", rad);
+	rect.setAttribute("cx", xPos);
+	rect.setAttribute("cy", yPos);
+	rect.setAttribute("stroke", s);
+	rect.setAttribute("stroke-width", sw);
+	rect.setAttribute("width", w);
+	rect.setAttribute("height", h);
+	rect.setAttribute("rx", xr);
+	rect.setAttribute("ry", yr);
+	rect.setAttribute("x", xPos);
+	rect.setAttribute("y", yPos);
 }
