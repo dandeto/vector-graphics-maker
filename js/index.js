@@ -215,10 +215,11 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		txt.setAttribute("y", yPos);
 		txt.setAttribute("stroke", s);
 		txt.setAttribute("stroke-width", sw);
-		txt.setAttribute("onclick", "edit4(this)");
 		txt.setAttribute("font-size", fontsz);
 		txt.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		txt.setAttribute("onmousedown", "selectElement(evt)");
+		txt.setAttribute("id", "text");
+		document.getElementById("text").oncontextmenu = function() {edit4(this)};
 	}
 
 	function circle() {
@@ -231,9 +232,10 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		cir.setAttribute("cy", yPos);
 		cir.setAttribute("stroke", s);
 		cir.setAttribute("stroke-width", sw);
-		cir.setAttribute("onclick", "edit(this)");
 		cir.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		cir.setAttribute("onmousedown", "selectElement(evt)");
+		cir.setAttribute("id", "circle");
+		document.getElementById("circle").oncontextmenu = function() {edit(this)};
 	}
 
 	function ellipse() {
@@ -247,9 +249,10 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		ellip.setAttribute("cy", yPos);
 		ellip.setAttribute("stroke", s);
 		ellip.setAttribute("stroke-width", sw);
-		ellip.setAttribute("onclick", "edit(this)");
 		ellip.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		ellip.setAttribute("onmousedown", "selectElement(evt)");
+		ellip.setAttribute("id", "ellipse");
+		document.getElementById("ellipse").oncontextmenu = function() {edit(this)};
 	}
 
 	function rectangle() {
@@ -265,9 +268,10 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		rect.setAttribute("y", yPos);
 		rect.setAttribute("stroke", s);
 		rect.setAttribute("stroke-width", sw);
-		rect.setAttribute("onclick", "edit(this)");
 		rect.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		rect.setAttribute("onmousedown", "selectElement(evt)");
+		rect.setAttribute("id", "rectangle");
+		document.getElementById("rectangle").oncontextmenu = function() {edit(this)};
 	}
 
 	function line() {
@@ -280,9 +284,10 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		lin.setAttribute("y2", yEnd);
 		lin.setAttribute("stroke", s);
 		lin.setAttribute("stroke-width", sw);
-		lin.setAttribute("onclick", "edit2(this)");
 		lin.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		lin.setAttribute("onmousedown", "selectElement(evt)");
+		lin.setAttribute("id", "line");
+		document.getElementById("line").oncontextmenu = function() {edit2(this)};
 	}
 
 	function polygon() {
@@ -325,9 +330,10 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		poly.setAttribute("stroke-width", sw);
 		poly.setAttribute("fill", color);
 		poly.setAttributeNode(points);
-		poly.setAttribute("onclick", "edit3(this)");
 		poly.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		poly.setAttribute("onmousedown", "selectElement(evt)");
+		poly.setAttribute("id", "polygon");
+		document.getElementById("polygon").oncontextmenu = function() {edit3(this)};
 	}
 }
 
