@@ -198,6 +198,7 @@ function saveSession() {
 		localStorage.save = "1";
 		var sw = svg.getAttribute("width");//in this scope so it can be updated.
 		var sh = svg.getAttribute("height");
+		eraseScript();
 		localStorage.svg = svg.innerHTML;
 		localStorage.width = sw;
 		localStorage.height = sh;
@@ -219,6 +220,7 @@ function saveSession() {
 		localStorage.sfx = "1";
 	}
 	if (localStorage.save == "1") {
+		eraseScript();
 		svg.innerHTML = localStorage.svg;
     	svg.setAttribute("width", localStorage.width);
     	svg.setAttribute("height", localStorage.height);
