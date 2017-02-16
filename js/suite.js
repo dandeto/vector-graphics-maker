@@ -43,8 +43,10 @@ function restore() {
 }
 
 function eraseScript() {
-	//svg.removeChild(script);	breaks everything
-	script.innerHTML = ""; //works a lot of the time.
+	if (localStorage.remove !== "true") { //won't remove script twice
+		svg.removeChild(script);
+		localStorage.remove = "true";
+	}
 }
 
 function set() {
@@ -154,10 +156,12 @@ function fade() {
 			wipe();
 			setTimeout(function() {
 				html.style.display = "inline";
-				eraseScript();//remove script before stuff happens
+				cleanup();//remove script before stuff happens
 				var width= svg.getAttribute("width");
 				var height= svg.getAttribute("height");
 				html.textContent = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="' + width +  '" height="' + height + '">' + svg.innerHTML + "</svg>"; //must be text content, b/c innerHTML will acctually run code.
+				fix();
+				svg.setAttribute("style", "display:none;");
 				setTimeout(function() {
 					html.style.transition = "opacity 0.5s linear 0s";
 					html.style.opacity = 1;
@@ -224,6 +228,8 @@ function saveSession() {
 		svg.innerHTML = localStorage.svg;
     	svg.setAttribute("width", localStorage.width);
     	svg.setAttribute("height", localStorage.height);
+	} else {
+		localStorage.remove = "false";
 	}
 })(); 
 
@@ -233,6 +239,7 @@ function resetSession() {
 		localStorage.removeItem("svg");
 		localStorage.removeItem("width");
 		localStorage.removeItem("height");
+		localStorage.removeItem("remove");
 		localStorage.save = "0";
 		location.reload();
 	}, 750);
