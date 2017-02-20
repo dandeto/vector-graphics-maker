@@ -213,6 +213,14 @@ function saveSession() {
 }
 
 (function () {
+	if (localStorage.save !== "1" && innerWidth <= 1300) {//set svg height based upon window dimensions
+		var canvasWidth = window.innerWidth - 320;
+		svg.setAttribute("width", canvasWidth);
+	}
+	if (localStorage.save !== "1" && innerHeight <= 800) {
+		var canvasHeight = window.innerHeight - 100;
+		svg.setAttribute("height", canvasHeight);
+	}
 	if(localStorage.audio == "0") {
 		mute();
 	}else {
@@ -223,7 +231,7 @@ function saveSession() {
 	}else {
 		localStorage.sfx = "1";
 	}
-	if (localStorage.save == "1") {
+	if (localStorage.save == "1") {//saving takes precident over default height / width svg
 		eraseScript();
 		svg.innerHTML = localStorage.svg;
     	svg.setAttribute("width", localStorage.width);

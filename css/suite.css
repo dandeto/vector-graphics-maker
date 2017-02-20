@@ -58,11 +58,11 @@ body {
 .directions {
 	display: none;
 	float: left;
-	margin: 5%;
-	padding: 5%;
+	margin: 3%;
+	padding: 3%;
 	background-color: #70707A;
 	font-size: 130%;
-	max-width: 700;
+	max-width: 55%;
 }
 
 .resize{
