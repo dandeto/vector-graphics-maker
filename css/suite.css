@@ -93,6 +93,10 @@ select {
 	font-family: inherit;
 }
 
+select:focus{
+    outline: none;
+}
+
 select:hover, .btn:hover {
 	background-color: #4B4B4B;
 	color: #000050;
@@ -130,6 +134,10 @@ input {
 	font-family: inherit;
 }
 
+input:focus{
+    outline: none;
+}
+
 .in {
 	background-color: #505050;
 	color: #000000;
@@ -141,7 +149,6 @@ input {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	border-radius: 3px;
-
 }
 
 .in:hover {
