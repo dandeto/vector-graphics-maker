@@ -2,6 +2,7 @@ function cleanup() {
 	svg.removeAttribute("style");//remove unnecessary attributes
 	svg.removeAttribute("id");
 	svg.removeAttribute("class");
+	var svgElem = document.querySelectorAll(".svgElem");
 	eraseScript();
 }
 

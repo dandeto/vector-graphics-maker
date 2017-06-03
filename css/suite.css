@@ -1,6 +1,7 @@
 /*Finesse*/
 .wrapper {
-	background-color: #1A1A1A;
+	background-color: #232323;
+	border:1px solid black;
 }
 
 h2 {
@@ -10,7 +11,7 @@ h2 {
 }
 
 .menu {
-	background-color: #1D1D1D;
+	background-color: #202020;
 	color: #70707A;
 	text-align: center;
 	padding:.6%;
@@ -24,6 +25,12 @@ h2 {
 	cursor:pointer;
 }
 
+#github {
+	background-image: url(../img/github.svg);
+	background-repeat: no-repeat;
+	padding-top: .26%;
+}
+
 body {
 	background-color: #101010;
 }
@@ -35,6 +42,7 @@ body {
 
 .gota {
     font-family: gota;
+    font-size: 250%;
 }
 
 @font-face {
@@ -63,6 +71,7 @@ body {
 	background-color: #70707A;
 	font-size: 130%;
 	max-width: 55%;
+	border:1px solid black;
 }
 
 .resize{
@@ -80,11 +89,13 @@ body {
 
 svg {
 	float:left;
+	margin-top:1%;
+	margin-left:1%;
 }
 
 select {
-  	background-color: #404040;
-	color: #000030;
+  background-color: #404040;
+	color: #000050;
 	border-color: #00001F;
 	padding:.2%;
 	margin: .2%;
@@ -99,7 +110,7 @@ select:focus{
 
 select:hover, .btn:hover {
 	background-color: #4B4B4B;
-	color: #000050;
+	color: #000065;
 	border-color: #000047;
 }
 
@@ -109,11 +120,6 @@ select:active, .btn:active {
 	border-color: #101057;
 }
 
-option {/*doesn't work...*/
-	background-color: #505050;
-	text-align: center;
-}
-
 .user {
 	background-color: #1D1D1D;
 	margin:1%;
@@ -121,6 +127,7 @@ option {/*doesn't work...*/
 	margin-left: 66%;
 	padding-left:5%;
 	font-family: vanilla;
+	border:1px solid black;
 }
 
 .inputs {
@@ -144,7 +151,7 @@ input:focus{
 	border-style: inset;
 	border-color: #000000;
 	border-width: .05%;
-	text-align: center;/*disgusting? cool?*/
+	text-align: center;
 	padding: .2%;
 	margin-top: 1%;
 	margin-bottom: 1%;
@@ -163,14 +170,14 @@ input:focus{
 
 .btn {
 	background-color: #404040;
-	color: #000030;
+	color: #000050;
 	border-style: inset;
 	border-color: #00001F;
 	border-radius: 5px;
-	padding:.2%;
+	padding: 1%;
 	padding-left: 1%;
 	padding-right: 1%;
-	margin: .2%;
+	margin: 1%;
 }
 
 a {

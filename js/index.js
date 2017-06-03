@@ -219,6 +219,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		txt.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		txt.setAttribute("onmousedown", "selectElement(evt)");
 		txt.setAttribute("id", "text");
+		txt.setAttribute("class", "svgElem");
 		document.getElementById("text").oncontextmenu = function() {edit4(this)};
 	}
 
@@ -235,6 +236,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		cir.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		cir.setAttribute("onmousedown", "selectElement(evt)");
 		cir.setAttribute("id", "circle");
+		cir.setAttribute("class", "svgElem");
 		document.getElementById("circle").oncontextmenu = function() {edit(this)};
 	}
 
@@ -252,6 +254,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		ellip.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		ellip.setAttribute("onmousedown", "selectElement(evt)");
 		ellip.setAttribute("id", "ellipse");
+		ellip.setAttribute("class", "svgElem");
 		document.getElementById("ellipse").oncontextmenu = function() {edit(this)};
 	}
 
@@ -271,6 +274,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		rect.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		rect.setAttribute("onmousedown", "selectElement(evt)");
 		rect.setAttribute("id", "rectangle");
+		rect.setAttribute("class", "svgElem");
 		document.getElementById("rectangle").oncontextmenu = function() {edit(this)};
 	}
 
@@ -287,6 +291,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		lin.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		lin.setAttribute("onmousedown", "selectElement(evt)");
 		lin.setAttribute("id", "line");
+		lin.setAttribute("class", "svgElem");
 		document.getElementById("line").oncontextmenu = function() {edit2(this)};
 	}
 
@@ -333,6 +338,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		poly.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		poly.setAttribute("onmousedown", "selectElement(evt)");
 		poly.setAttribute("id", "polygon");
+		poly.setAttribute("class", "svgElem");
 		document.getElementById("polygon").oncontextmenu = function() {edit3(this)};
 	}
 }

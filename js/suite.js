@@ -11,6 +11,8 @@ var music = document.getElementById("audio1");
 var sfx = document.querySelectorAll(".sfx");
 var display = 0;
 
+//manipulating functions
+
 function wipe() { //wipe everything
   	svg.style.transition = "opacity 0.5s linear 0s";
 	svg.style.opacity = 0;
@@ -48,6 +50,8 @@ function eraseScript() {
 		localStorage.remove = "true";
 	}
 }
+
+//menu
 
 function set() {
 	sfx[2].play();
@@ -188,13 +192,22 @@ function toggleBG() {
 	var field = document.getElementById("svg");
 	if(bg == false) {
 		field.style.background = "url('img/square.svg')";
+		field.style.border = "1px solid black";
 		bg = true;
 	}
 	else {
 		field.style.background = "";
+		field.style.border = "";
 		bg = false;
 	}
 }
+
+function github() {
+	window.open("https://github.com/dandeto/vector-graphics-maker", "_blank");
+}
+
+
+//memory
 
 function saveSession() {
 	sfx[0].play();
@@ -213,24 +226,37 @@ function saveSession() {
 }
 
 (function () {
-	if (localStorage.save !== "1" && innerWidth <= 1300) {//set svg height based upon window dimensions
-		var canvasWidth = window.innerWidth - 320;
+	console.log("window width = " + window.innerWidth);
+	console.log("window height = " + window.innerHeight);
+
+	if (localStorage.getItem("save") === null) { //immedietly assign save value
+  		localStorage.save = 0;
+	}
+
+	if (localStorage.save !== "1") {//set svg height based upon window dimensions
+		var canvasWidth = window.innerWidth - 750;
 		svg.setAttribute("width", canvasWidth);
+		console.log("canvas width = " + canvasWidth);
 	}
-	if (localStorage.save !== "1" && innerHeight <= 800) {
-		var canvasHeight = window.innerHeight - 100;
+
+	if (localStorage.save !== "1") {
+		var canvasHeight = window.innerHeight - 200;
 		svg.setAttribute("height", canvasHeight);
+		console.log("canvas height = " + canvasHeight);
 	}
+
 	if(localStorage.audio == "0") {
 		mute();
 	}else {
 		localStorage.audio = "1";
 	}
+
 	if(localStorage.sfx == "0") {
 		muteSFX();
 	}else {
 		localStorage.sfx = "1";
 	}
+	
 	if (localStorage.save == "1") {//saving takes precident over default height / width svg
 		eraseScript();
 		svg.innerHTML = localStorage.svg;
@@ -239,7 +265,7 @@ function saveSession() {
 	} else {
 		localStorage.remove = "false";
 	}
-})(); 
+})();
 
 function resetSession() {
 	sfx[1].play();
@@ -248,6 +274,8 @@ function resetSession() {
 		localStorage.removeItem("width");
 		localStorage.removeItem("height");
 		localStorage.removeItem("remove");
+		localStorage.removeItem("audio");
+		localStorage.removeItem("sfx");
 		localStorage.save = "0";
 		location.reload();
 	}, 750);
