@@ -1,11 +1,10 @@
 var bg = false;
-var shape;
-var edit;
+var shape, edit, pts;
 var cont = document.getElementById("container");
 var inputs = document.querySelectorAll(".hide");//determines which input fields to display
-var pts;
 
-document.getElementById("shapes").onchange = function(find) {
+//find which function to run
+document.getElementById("shapes").onchange = function(find) { //chrome support
 	sfx[5].play();
     if (this.value == "circle") {Ccircle();}
     if (this.value == "rectangle") {Crectangle();}
@@ -15,6 +14,7 @@ document.getElementById("shapes").onchange = function(find) {
     if (this.value == "text") {Ctext();}
 };
 
+//update input fields and select shape
 function Ccircle() {
 	shape = 1; //tells which shape is selected
 	removeCont();
@@ -127,14 +127,15 @@ function Ctext() {
 	inputs[7].placeholder="Font Size";
 }
 
-function removeCont() {
+//pre-creation setup
+function removeCont() { //cycle through and delete all text inputs for polygons 
 	while (cont.hasChildNodes()) {
 		cont.removeChild(cont.firstChild);
     }
 }
 
 function setPoints() {
-	pts = prompt("how many points do you want to have on this polygon?");//gets #of points from user
+	pts = prompt("how many points do you want to have on this polygon?");
 
 	if(pts < 1) {
 		alert("Enter a # greater than one.");
@@ -148,11 +149,11 @@ function setPoints() {
 		alert("You should use the line tool for a line.");
 	}
 
-	if(pts > 5) {
-		alert("You can only have a max of 5 points, sorry.");
+	if(pts > 100) {
+		alert("Making a polygon with over 100 points is ridiculous!");
 	}
 	removeCont();
-	if(pts > 1 && pts < 6) {
+	if(pts > 1 && pts < 101) {
 		for (var i = 0; i < pts; i++) {
 			var x = document.createElement("INPUT");
    			x.setAttribute("type", "text");
@@ -168,6 +169,7 @@ function setPoints() {
 	}
 }
 
+//create the SVG element!!
 function create() { //vars set to txt values (here so that it doesn't get them onload). allows updates.
 	var color = document.getElementById("txt1").value; //var dec for inputs
 	var fontsz = document.getElementById("txt2").value;
@@ -184,8 +186,9 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 	var yEnd = document.getElementById("txt9").value;
 	var t = document.getElementById("txt10").value;
 
-	var points = document.createAttribute("points");
+	var points = document.createAttribute("points"); //this is depricated. I need to change this.
 
+//execute function based on shape
 	if(shape == 1) {
 		circle();
 	}
@@ -204,7 +207,9 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 	if(shape == 6) {
 		text();
 	}
+
 	sfx[4].play();
+
 	function text() {
 		var txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
 		document.getElementById("svg").appendChild(txt);
@@ -220,7 +225,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		txt.setAttribute("onmousedown", "selectElement(evt)");
 		txt.setAttribute("id", "text");
 		txt.setAttribute("class", "svgElem");
-		document.getElementById("text").oncontextmenu = function() {edit4(this)};
+		document.getElementById("text").oncontextmenu = function() {edit4(this)}; //right click edits it.
 	}
 
 	function circle() {
@@ -295,39 +300,29 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		document.getElementById("line").oncontextmenu = function() {edit2(this)};
 	}
 
-	function polygon() {
-		var point1 = cont.childNodes[0].value;
-		var point2 = cont.childNodes[1].value;
-		var point3 = cont.childNodes[2].value;
-		var point4 = cont.childNodes[3].value;
+	function polygon() { //update this with a couple serious for/while loops and vars. should work fine without this junk.
+		var round = 1;
+		for (var i = 0; i < cont.childNodes.length; i++) { //gets value of every node in order.
+			points.value = points.value + cont.childNodes[i].value;
 
-		if(pts == 2) {
-			points.value = point1+","+point2+" "+point3+","+point4;
-		}
+			if (i == cont.childNodes.length -1) {
+				round = 0; // don't let there be a random comma or space at the end.
+			}
 
-		if(pts == 3) {
-			var point5 = cont.childNodes[4].value;
-			var point6 = cont.childNodes[5].value;
-			points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6;
-		}
+			switch(round) {
+					case 0: 
+						break;
+					case 1: 
+						points.value = points.value + ",";
+						round ++
+						break;
+					case 2: 
+						points.value = points.value + " ";
+						round --
+			}
+		};
 
-		if(pts == 4) {
-			var point5 = cont.childNodes[4].value;
-			var point6 = cont.childNodes[5].value;
-			var point7 = cont.childNodes[6].value;
-			var point8 = cont.childNodes[7].value;
-			points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6+" "+point7+","+point8;
-		}
-
-		if(pts == 5) {
-			var point5 = cont.childNodes[4].value;
-			var point6 = cont.childNodes[5].value;
-			var point7 = cont.childNodes[6].value;
-			var point8 = cont.childNodes[7].value;
-			var point9 = cont.childNodes[8].value;
-			var point10 = cont.childNodes[9].value;
-			points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6+" "+point7+","+point8+" "+point9+","+point10;
-		}
+		//keep all of this stuff
 		var poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
 		document.getElementById("svg").appendChild(poly);
 
@@ -343,7 +338,7 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 	}
 }
 
-function update() {
+function update() { // good for now, but needs to work with create function also
 	color = document.getElementById("txt1").value; //var dec for inputs
 	fontsz = document.getElementById("txt2").value;
 	rad = document.getElementById("txt2").value;
@@ -360,6 +355,7 @@ function update() {
 	t = document.getElementById("txt10").value;
 }
 
+//edit functions -- need to make these 1 thing.
 function edit4(txt) {
 	sfx[7].play();
 	update();
@@ -380,38 +376,27 @@ function edit3(poly) {
 	var strokeWidth = document.createAttribute("stroke-width");
 	var points = document.createAttribute("points");
 
-	var point1 = cont.childNodes[0].value;
-	var point2 = cont.childNodes[1].value;
-	var point3 = cont.childNodes[2].value;
-	var point4 = cont.childNodes[3].value;
+	var round = 1;
+	for (var i = 0; i < cont.childNodes.length; i++) { //gets value of every node in order.
+		points.value = points.value + cont.childNodes[i].value;
 
-	if(pts == 2) {
-		points.value = point1+","+point2+" "+point3+","+point4;
-	}
+		if (i == cont.childNodes.length -1) {
+			round = 0; // don't let there be a random comma or space at the end.
+		}
 
-	if(pts == 3) {
-		var point5 = cont.childNodes[4].value;
-		var point6 = cont.childNodes[5].value;
-		points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6;
-	}
+		switch(round) {
+				case 0: 
+					break;
+				case 1: 
+					points.value = points.value + ",";
+					round ++
+					break;
+				case 2: 
+					points.value = points.value + " ";
+					round --
+		}
+	};
 
-	if(pts == 4) {
-		var point5 = cont.childNodes[4].value;
-		var point6 = cont.childNodes[5].value;
-		var point7 = cont.childNodes[6].value;
-		var point8 = cont.childNodes[7].value;
-		points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6+" "+point7+","+point8;
-	}
-
-	if(pts == 5) {
-		var point5 = cont.childNodes[4].value;
-		var point6 = cont.childNodes[5].value;
-		var point7 = cont.childNodes[6].value;
-		var point8 = cont.childNodes[7].value;
-		var point9 = cont.childNodes[8].value;
-		var point10 = cont.childNodes[9].value;
-		points.value = point1+","+point2+" "+point3+","+point4+" "+point5+","+point6+" "+point7+","+point8+" "+point9+","+point10;
-	}
 	poly.setAttribute("stroke", s);
 	poly.setAttribute("stroke-width", sw);
 	poly.setAttribute("fill", color);
