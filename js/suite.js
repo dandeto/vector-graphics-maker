@@ -192,12 +192,10 @@ function toggleBG() {
 	var field = document.getElementById("svg");
 	if(bg == false) {
 		field.style.background = "url('img/square.svg')";
-		field.style.border = "1px solid black";
 		bg = true;
 	}
 	else {
 		field.style.background = "";
-		field.style.border = "";
 		bg = false;
 	}
 }
@@ -231,18 +229,6 @@ function saveSession() {
 
 	if (localStorage.getItem("save") === null) { //immedietly assign save value
   		localStorage.save = 0;
-	}
-
-	if (localStorage.save !== "1") {//set svg height based upon window dimensions
-		var canvasWidth = window.innerWidth - 750;
-		svg.setAttribute("width", canvasWidth);
-		console.log("canvas width = " + canvasWidth);
-	}
-
-	if (localStorage.save !== "1") {
-		var canvasHeight = window.innerHeight - 200;
-		svg.setAttribute("height", canvasHeight);
-		console.log("canvas height = " + canvasHeight);
 	}
 
 	if(localStorage.audio == "0") {
