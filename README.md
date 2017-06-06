@@ -2,7 +2,7 @@
 
 Make vector graphics in your browser like never before!
 
-You can view this beauty at http://vectorgraphics.online or click the shiny green download button right here!
+You can view this beauty at http://vectorgraphics.online or click the shiny green download button up top!
 
 
 -- Capabilities (why I made this) --
