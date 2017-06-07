@@ -8,11 +8,12 @@ var about = document.getElementById("about");
 var settings = document.getElementById("settings");
 var html = document.getElementById("html");
 var music = document.getElementById("audio1");
+var slider = document.getElementById("slider1");
+var slider2 = document.getElementById("slider2");
 var sfx = document.querySelectorAll(".sfx");
 var display = 0;
 
 //manipulating functions
-
 function wipe() { //wipe everything
   	svg.style.transition = "opacity 0.5s linear 0s";
 	svg.style.opacity = 0;
@@ -52,7 +53,6 @@ function eraseScript() {
 }
 
 //menu
-
 function set() {
 	sfx[2].play();
 	if(display == 1) { // Directions
@@ -204,9 +204,7 @@ function github() {
 	window.open("https://github.com/dandeto/vector-graphics-maker", "_blank");
 }
 
-
 //memory
-
 function saveSession() {
 	sfx[0].play();
 	if (window.localStorage) {
@@ -224,30 +222,37 @@ function saveSession() {
 }
 
 (function () {
-	console.log("window width = " + window.innerWidth);
-	console.log("window height = " + window.innerHeight);
-
 	if (localStorage.getItem("save") === null) { //immedietly assign save value
   		localStorage.save = 0;
 	}
-
-	if(localStorage.audio == "0") {
-		mute();
-	}else {
-		localStorage.audio = "1";
-	}
-
-	if(localStorage.sfx == "0") {
-		muteSFX();
-	}else {
-		localStorage.sfx = "1";
-	}
 	
-	if (localStorage.save == "1") {//saving takes precident over default height / width svg
+	if (localStorage.audio === null) {
+		localStorage.audio = 1;
+		music.volume = 1;
+	}
+
+	if (localStorage.audio !== null) {
+		music.volume = localStorage.audio;
+		slider.value = localStorage.audio;
+	}
+
+	if (localStorage.sfx === null) {
+		for (var i = 0; i < sfx.length; i++) {
+			sfx[i].volume = 1;
+		}
+		localStorage.sfx = 1;
+	}
+
+	if (localStorage.sfx !== null) {
+		for (var i = 0; i < sfx.length; i++) {
+			sfx[i].volume = localStorage.sfx;
+		}
+		slider2.value = localStorage.sfx;
+	}
+
+	if (localStorage.save == 1) {//saving takes precident over default height / width svg
 		eraseScript();
 		svg.innerHTML = localStorage.svg;
-    	svg.setAttribute("width", localStorage.width);
-    	svg.setAttribute("height", localStorage.height);
 	} else {
 		localStorage.remove = "false";
 	}
@@ -262,7 +267,7 @@ function resetSession() {
 		localStorage.removeItem("remove");
 		localStorage.removeItem("audio");
 		localStorage.removeItem("sfx");
-		localStorage.save = "0";
+		localStorage.save = 0;
 		location.reload();
 	}, 750);
 }
@@ -271,28 +276,16 @@ function playclicksound() {
 	sfx[6].play();
 }
 
-function mute() {
-	music.pause();
-	music.currentTime = 0;
-	localStorage.audio = "0";
+function volumeM() {
+	localStorage.audio = slider.value;
+	music.volume = slider.value;
+
 }
 
-function start() {
-	music.play();
-	localStorage.audio = "1";
-}
-
-function muteSFX() {
+function volumeS() {
+	localStorage.sfx = slider2.value;
 	for (var i = 0; i < sfx.length; i++) {
-		sfx[i].muted = true;
+		sfx[i].volume = slider2.value;
 	}
-	localStorage.sfx = "0";
-}
-
-function startSFX() {
 	sfx[2].play();
-	for (var i = 0; i < sfx.length; i++) {
-		sfx[i].muted = false;
-	}
-	localStorage.sfx = "1";
 }

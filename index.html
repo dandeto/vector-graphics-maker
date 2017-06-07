@@ -49,11 +49,12 @@
 		</p>
 
 		<p id="settings" class="directions mario">
-			Settings:<br>
-			<input class="btn" type="button" value="Mute Audio" onclick="mute()">
-			<input class="btn" type="button" value="Play Audio" onclick="start()"><br>
-			<input class="btn" type="button" value="Mute Sound Effects" onclick="muteSFX()">
-			<input class="btn" type="button" value="Play Sound Effects" onclick="startSFX()">
+			Settings:<br><br>
+			<span class="mario">Music Volume: </span>
+			<input id="slider1" class="slider" onmousemove="volumeM()" type="range" min="0" max="1" step=".05" />
+			<br>
+			<span class="mario">Sound Effects Volume: </span>
+			<input id="slider2" class="slider" onmousemove="volumeS()" type="range" min="0" max="1" step=".05" />
 			<input class="btn" type="button" value="Exit" onclick="set4()">
 		</p>
 

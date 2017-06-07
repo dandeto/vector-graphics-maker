@@ -12,7 +12,7 @@ h2 {
 
 .menu {
 	background-color: #202020;
-	color: #70707A;
+	color: #608080;
 	text-align: center;
 	padding:.6%;
 }
@@ -72,6 +72,14 @@ body {
 	font-size: 130%;
 	max-width: 50%;
 	border:1px solid black;
+}
+
+.slider {
+	cursor: pointer;
+	-webkit-appearance:none;
+	background-color: #80807A;
+	border-radius: 10px;
+	border:1px solid #101050;
 }
 
 .resize{
