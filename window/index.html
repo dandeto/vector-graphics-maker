@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>index</title>
+		<meta charset='utf-8'>
+		<script type='text/javascript' src='index.js'></script>
+		<link rel='stylesheet' type='text/css' href='../css/suite.css'>
+		<link rel='stylesheet' type='text/css' href='index.css'>
+	</head>
+	<body>
+		<div id="description" class="mario">
+			<p>
+				This is a hex color-picker for you to use so that you can pick exactly the right color for your graphics. 
+				The program lets you type in basic colors such as "red," "orange," and even "magenta," but this color-picker
+				 will let you make a more unique color.
+			</p>
+			<p>
+				Directions:<br>
+				Here's how hexidecimal works. It is a base 16 number system, so the digits you may use are as follows - <br>
+				1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.<br>
+				Hex colors are similar to RGB because Red, Green, and Blue get blended together at the designated amount to make a color. 
+				FF is the highest amount while 00 is the lowest. Type in any value between 00 and FF for each catagory below to get a unique color. 
+				Copy the hex code that will appear below and paste it into the color input slot to achieve the same color for your graphic that you made here.
+				 You <b>MUST</b> include the <b>#</b>.
+			</p>
+			<p id="hex">
+
+			</p>
+		</div>
+		<div id="content" class="vanilla">
+			<p>red: 
+				<input id="red" class="color" type="text" size="2" maxlength="2" onkeyup="setup()"/>
+			</p>
+			<p>green: 
+				<input id="green" class="color" type="text" size="2" maxlength="2" onkeyup="setup()"/>
+			</p>
+			<p>blue: 
+				<input id="blue" class="color" type="text" size="2" maxlength="2" onkeyup="setup()"/>
+			</p>
+		</div>
+		<p></p>
+	</body>
+</html>

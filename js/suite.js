@@ -204,6 +204,10 @@ function github() {
 	window.open("https://github.com/dandeto/vector-graphics-maker", "_blank");
 }
 
+function openNew(){
+    var editor = window.open("window/index.html", "mywin", "width=800, height=450");
+}
+
 //memory
 function saveSession() {
 	sfx[0].play();
