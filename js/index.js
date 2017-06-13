@@ -223,9 +223,8 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		txt.setAttribute("font-size", fontsz);
 		txt.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		txt.setAttribute("onmousedown", "selectElement(evt)");
-		txt.setAttribute("id", "text");
 		txt.setAttribute("class", "svgElem");
-		document.getElementById("text").oncontextmenu = function() {edit4(this)}; //right click edits it.
+		txt.oncontextmenu = function() {edit4(this)}; //right click edits it.
 	}
 
 	function circle() {
@@ -240,9 +239,8 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		cir.setAttribute("stroke-width", sw);
 		cir.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		cir.setAttribute("onmousedown", "selectElement(evt)");
-		cir.setAttribute("id", "circle");
 		cir.setAttribute("class", "svgElem");
-		document.getElementById("circle").oncontextmenu = function() {edit(this)};
+		cir.oncontextmenu = function() {edit(this)};
 	}
 
 	function ellipse() {
@@ -258,9 +256,8 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		ellip.setAttribute("stroke-width", sw);
 		ellip.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		ellip.setAttribute("onmousedown", "selectElement(evt)");
-		ellip.setAttribute("id", "ellipse");
 		ellip.setAttribute("class", "svgElem");
-		document.getElementById("ellipse").oncontextmenu = function() {edit(this)};
+		ellip.oncontextmenu = function() {edit(this)};
 	}
 
 	function rectangle() {
@@ -278,9 +275,8 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		rect.setAttribute("stroke-width", sw);
 		rect.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		rect.setAttribute("onmousedown", "selectElement(evt)");
-		rect.setAttribute("id", "rectangle");
 		rect.setAttribute("class", "svgElem");
-		document.getElementById("rectangle").oncontextmenu = function() {edit(this)};
+		rect.oncontextmenu = function() {edit(this)};
 	}
 
 	function line() {
@@ -295,9 +291,8 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		lin.setAttribute("stroke-width", sw);
 		lin.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		lin.setAttribute("onmousedown", "selectElement(evt)");
-		lin.setAttribute("id", "line");
 		lin.setAttribute("class", "svgElem");
-		document.getElementById("line").oncontextmenu = function() {edit2(this)};
+		lin.oncontextmenu = function() {edit2(this)};
 	}
 
 	function polygon() { //update this with a couple serious for/while loops and vars. should work fine without this junk.
@@ -332,9 +327,8 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		poly.setAttributeNode(points);
 		poly.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		poly.setAttribute("onmousedown", "selectElement(evt)");
-		poly.setAttribute("id", "polygon");
 		poly.setAttribute("class", "svgElem");
-		document.getElementById("polygon").oncontextmenu = function() {edit3(this)};
+		poly.oncontextmenu = function() {edit3(this)};
 	}
 }
 
