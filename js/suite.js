@@ -230,24 +230,24 @@ function saveSession() {
   		localStorage.save = 0;
 	}
 	
-	if (localStorage.audio === null) {
+	if (localStorage.audio === undefined) {
 		localStorage.audio = 1;
 		music.volume = 1;
 	}
 
-	if (localStorage.audio !== null) {
+	if (localStorage.audio !== undefined) {
 		music.volume = localStorage.audio;
 		slider.value = localStorage.audio;
 	}
 
-	if (localStorage.sfx === null) {
+	if (localStorage.sfx === undefined) {
 		for (var i = 0; i < sfx.length; i++) {
 			sfx[i].volume = 1;
 		}
 		localStorage.sfx = 1;
 	}
 
-	if (localStorage.sfx !== null) {
+	if (localStorage.sfx !== undefined) {//not null
 		for (var i = 0; i < sfx.length; i++) {
 			sfx[i].volume = localStorage.sfx;
 		}
