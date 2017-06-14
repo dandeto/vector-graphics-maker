@@ -224,7 +224,11 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		txt.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		txt.setAttribute("onmousedown", "selectElement(evt)");
 		txt.setAttribute("class", "svgElem");
-		txt.oncontextmenu = function() {edit4(this)}; //right click edits it.
+		txt.addEventListener("contextmenu", function(event) {
+			x = event.clientX;
+    		y = event.clientY;
+	        captureVars.call(this);
+		});
 	}
 
 	function circle() {
@@ -240,7 +244,11 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		cir.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		cir.setAttribute("onmousedown", "selectElement(evt)");
 		cir.setAttribute("class", "svgElem");
-		cir.oncontextmenu = function() {edit(this)};
+		cir.addEventListener("contextmenu", function(event) {
+	        x = event.clientX;
+	    	y = event.clientY;
+	        captureVars.call(this);
+		});
 	}
 
 	function ellipse() {
@@ -257,7 +265,11 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		ellip.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		ellip.setAttribute("onmousedown", "selectElement(evt)");
 		ellip.setAttribute("class", "svgElem");
-		ellip.oncontextmenu = function() {edit(this)};
+		ellip.addEventListener("contextmenu", function(event) {
+	        x = event.clientX;
+	    	y = event.clientY;
+	        captureVars.call(this);
+		});
 	}
 
 	function rectangle() {
@@ -276,7 +288,11 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		rect.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		rect.setAttribute("onmousedown", "selectElement(evt)");
 		rect.setAttribute("class", "svgElem");
-		rect.oncontextmenu = function() {edit(this)};
+		rect.addEventListener("contextmenu", function(event) {
+	        x = event.clientX;
+	    	y = event.clientY;
+	        captureVars.call(this);
+		});
 	}
 
 	function line() {
@@ -292,7 +308,11 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		lin.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		lin.setAttribute("onmousedown", "selectElement(evt)");
 		lin.setAttribute("class", "svgElem");
-		lin.oncontextmenu = function() {edit2(this)};
+		lin.addEventListener("contextmenu", function(event) {
+	        x = event.clientX;
+	    	y = event.clientY;
+	        captureVars.call(this);
+		});
 	}
 
 	function polygon() { //update this with a couple serious for/while loops and vars. should work fine without this junk.
@@ -328,7 +348,11 @@ function create() { //vars set to txt values (here so that it doesn't get them o
 		poly.setAttribute("transform", "matrix(1 0 0 1 0 0)");
 		poly.setAttribute("onmousedown", "selectElement(evt)");
 		poly.setAttribute("class", "svgElem");
-		poly.oncontextmenu = function() {edit3(this)};
+		poly.addEventListener("contextmenu", function(event) {
+	        x = event.clientX;
+	    	y = event.clientY;
+	        captureVars.call(this);
+		});
 	}
 }
 

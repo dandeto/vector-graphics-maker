@@ -1,0 +1,22 @@
+#context-menu {
+	display: none;
+	position: absolute;
+	background-color: #808080;
+	font-size: 115%;
+	border: 1px solid black;
+	box-shadow:2px 2px 2px black;
+	cursor: pointer;
+}
+
+.menu-item {
+	padding: 8%;
+	background-color: #808080;
+}
+
+.menu-item:hover {
+	background-color: #A0A0A0;
+}
+
+.menu-item:active {
+	background-color: #909090;
+}
