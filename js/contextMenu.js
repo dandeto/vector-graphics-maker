@@ -12,6 +12,7 @@ document.addEventListener('contextmenu', mouse_input, false); //reference the mo
 
 item[0].addEventListener("click", dostuff); //onclick for edit
 item[1].addEventListener("click", move_to_top); //onclick for edit
+item[2].addEventListener("click", deleteShape); //onclick for edit
 document.body.addEventListener("click", menuOff);
 
 
@@ -114,4 +115,8 @@ function dostuff() {
 
 function move_to_top() {
     svg.appendChild(self);
+}
+
+function deleteShape() {
+    svg.removeChild(self);
 }
