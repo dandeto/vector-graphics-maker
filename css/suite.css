@@ -131,6 +131,7 @@ select:active, .btn:active {
 }
 
 .user {
+	position: fixed;
 	background-color: #1D1D1D;
 	margin:1%;
 	padding:1%;
@@ -138,6 +139,7 @@ select:active, .btn:active {
 	padding-left:5%;
 	font-family: vanilla;
 	border:1px solid black;
+	width:25%;
 }
 
 .inputs {
@@ -178,6 +180,7 @@ input:focus{
 }
 
 .btn {
+	cursor: pointer;
 	background-color: #404040;
 	color: #000050;
 	border-style: inset;
@@ -219,6 +222,7 @@ a:active {
 
 #link:visited {
     color: #000050;
+	  cursor: pointer;
 }
 
 audio {
