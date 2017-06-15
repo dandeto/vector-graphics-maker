@@ -177,14 +177,11 @@ function fade() {
 
 function resize() {
 	sfx[4].play();
-	var width = 1000;
-	var height = 650;
 	var elem = document.querySelectorAll(".resize");
-	width = elem[0].value;
-	height = elem[1].value;
+	var width = elem[0].value;
+	var height = elem[1].value;
 	svg.setAttribute("width", width);
 	svg.setAttribute("height", height);
-	svg.appendChild(elem);
 }
 
 function toggleBG() {
@@ -212,7 +209,7 @@ function openNew(){
 function saveSession() {
 	sfx[0].play();
 	if (window.localStorage) {
-		localStorage.save = "1";
+		localStorage.save = 1;
 		var sw = svg.getAttribute("width");//in this scope so it can be updated.
 		var sh = svg.getAttribute("height");
 		eraseScript();
@@ -257,6 +254,8 @@ function saveSession() {
 	if (localStorage.save == 1) {//saving takes precident over default height / width svg
 		eraseScript();
 		svg.innerHTML = localStorage.svg;
+		svg.setAttribute("width", localStorage.width);
+		svg.setAttribute("height", localStorage.height);
 	} else {
 		localStorage.remove = "false";
 	}

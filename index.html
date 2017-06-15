@@ -28,10 +28,12 @@
 		<p id="directions" class="directions mario">
 			Directions:<br>Use the panel on the right to create vector graphics. The Shapes dropdown menu will  allow you to select which
 			shape you want to create. The graphic will be created to your specifications. Hit submit to 
-			create your shape. If you wish to change any attribute, change the value 
-			in the input field and right click the shape. You may move the graphic by clicking and dragging it. 
-			You can save your session online, or download the graphic to your computer. If you would like to use hexidecimal colors,
-			 you may right-click the "color" input field to open a hex color-picker.<br>
+			create your shape. Right click any shape you have created to open a menu that lets you manipulate it. 
+			If you wish to change any attribute, change the value 
+			in the input field and right click the shape. Then click &#x22;Edit&#x22;. You may move the graphic by left-clicking and dragging it. 
+			You can save your session online, or download the graphic to your computer. If you would like to use hexidecimal colors, 
+			you may right-click the "color" input field to open a hex color-picker. You must have your pop-up blocker disabled to see it because it will open
+			up in a new window.<br>
 		  	<input class="btn" type="button" value="exit" onclick="set()">
 		</p>
 
@@ -68,7 +70,7 @@
 			<input class="btn" type="button" value="Exit" onclick="set5()">
 		</p>
 		<div oncontextmenu="return false;" id="svgContainer" class="svgContainer">
-			<svg class="svg" id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width="1000" height="650">
+			<svg class="svg" id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" width="62%" height="75%">
 				<script id="script" type="text/ecmascript"><![CDATA[
 					//open source code from petercollingridge.co.uk
 				    var selectedElement = 0;
