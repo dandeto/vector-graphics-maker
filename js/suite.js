@@ -268,8 +268,6 @@ function resetSession() {
 		localStorage.removeItem("width");
 		localStorage.removeItem("height");
 		localStorage.removeItem("remove");
-		localStorage.removeItem("audio");
-		localStorage.removeItem("sfx");
 		localStorage.save = 0;
 		location.reload();
 	}, 750);
