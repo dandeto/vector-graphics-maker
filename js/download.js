@@ -15,7 +15,7 @@ document.getElementById("link").onclick = function(code) {
 	cleanup();
 	sfx[4].play();
     var svgContainerHtml = document.getElementById("svgContainer").innerHTML;
-    this.href = 'data:text/plain;charset=utf-8,'
+    this.href = 'data:image/svg;charset=utf-8,'
     + encodeURIComponent(svgContainerHtml);
     wipe();
     fix();
